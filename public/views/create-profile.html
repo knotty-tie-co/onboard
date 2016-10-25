@@ -1,0 +1,99 @@
+<div ng-controller="ProfileController as profile">
+	<div class="ui main text">
+		<div class="ui">
+
+			<div ng-show="profile.isStep(1)">
+				<center>
+					<h2 class="ui header">Welcome to Knotty Tie Co!</h2>
+					<h3 class="ui header">Custom wedding ties, bow ties, and pocket squares made just for you.</h3>
+
+					<br/>
+					<div class="twelve wide column centered">
+						<div class="ui container">
+							<img class="ui fluid rounded image" src="./assets/wedding-photo.png">
+							<br/>
+							<p>We'll start by asking a few simple questions to find your style.</p>
+							<button class="ui positive button" ng-click="profile.setStep(2)">I'm Ready</button>
+						</div>
+					</div>
+				</center>
+			</div>
+			<div ng-show="profile.isStep(2)">
+				<div class="ui row">
+				<center>
+					<h3 class="ui header">Your Tastes</h3>
+					<h4 class="ui header">Which styles describe the look you're going for?</h4>
+					{{profile.descriptors}}
+				</center>
+				<br />
+				</div>
+				<div class="ui centered fluid container cards">
+					<div class="ui raised link yellow card" ng-click="profile.toggleDescriptor('modern')">
+						<div class="image">
+							<img src="./assets/wedding-photo.png">
+						</div>
+						<div class="content">
+							Modern
+							<span class="right floated star">
+								<i class="star yellow icon"></i>
+							</span>
+						</div>
+					</div>
+					<div class="ui link card">
+						<div class="image">
+							<img src="./assets/wedding-photo.png">
+						</div>
+						<div class="content">
+							Classic
+							<span class="right floated star">
+								<i class="star grey icon"></i>
+							</span>
+						</div>
+					</div>
+					<div class="ui link card">
+						<div class="image">
+							<img src="./assets/wedding-photo.png">
+						</div>
+						<div class="content">
+							Vintage
+							<span class="right floated star">
+								<i class="star grey icon"></i>
+							</span>
+						</div>
+
+					</div>
+					<div class="ui link card">
+						<div class="image">
+							<img src="./assets/wedding-photo.png">
+						</div>
+						<div class="content">
+							Rustic
+							<span class="right floated star">
+								<i class="star grey icon"></i>
+							</span>
+						</div>
+
+					</div>
+					<div class="ui link card" ng-class="{{yellow}}">
+						<div class="image">
+							<img src="./assets/wedding-photo.png">
+						</div>
+						<div class="content">
+							Minimal
+							<span class="right floated star">
+								<i class="star grey icon"></i>
+							</span>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<center>
+				<button class="ui right labeled basic icon centered button">
+				  <i class="right arrow icon"></i>
+				  Next
+				</button>
+				</center>
+			</div>
+		</div>
+	</div>
+</div>

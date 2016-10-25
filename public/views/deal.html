@@ -1,0 +1,69 @@
+<section ng-controller="DealController as deal">
+	<h2 ng-show="!deal.designer">Hello, {{deal.deal.client.fName}}! Here are your proofs for review.</h2>
+	<div ng-show="!deal.designer && deal.proofs[0].response == undefined" class="ui compact icon message">
+		<i class="talk icon"></i>
+		<div class="content">
+			<div class="header">
+				We're awaiting your feedback on your most recent proof.
+			</div>
+			<p>Let us know what you think! We can make any changes you like, or help you finalize your order details.</p>
+		</div>
+	</div>
+	<div class="ui three stackable cards">
+
+		<div ng-show="deal.designer" class="ui card fluid" >
+			<div class="image">
+				<img src="Assets/no-image.png">
+			</div>
+			<div id="addProof" class="ui bottom attached button positive">
+			      <i class="add icon"></i>
+			      New Proof
+			</div>
+		</div>
+
+		<a ng-repeat="proof in deal.proofs" class="ui card fluid raised" ng-href="/proof/{{proof._id}}" >
+			<div class="image">
+				<img src={{proof.image}}>
+			</div>
+			<div class="content">
+
+				<p class="header">Proof {{deal.proofs.length - $index}} <span ng-show="!proof.response && $index == 0" class="right floated"><i class="talk icon"></i></span></p>
+				<!-- <p class="meta">Created 2 days ago</p> -->
+				<p ng-show="!proof.response && $index == 0" class="meta">Awaiting your response</p>
+			</div>
+		</a>
+	</div>
+
+	<div id="modaldiv" ng-show="deal.designer" class="ui modal">
+	  <i class="close icon"></i>
+	  <div class="header">
+	    New Proof
+	  </div>
+	  <div class="content">
+	    <div class="description">
+
+	      <div class="ui header">Upload a new proof for {{deal.deal.client.fName}} {{deal.deal.client.lName}}.</div>
+	      <form class="ui form">
+	        <div class="field">
+	          <label>Paste the link to the proof image:</label>
+	          <input type="text" name="image" ng-model="addProof.image" placeholder="blablagoogledrive.realurl.ly/23452-1">
+	        </div>
+	        <div class="field">
+	          <div class="ui checkbox">
+	            <input type="checkbox" tabindex="0" class="hidden">
+	            <label>Send this proof to the client now?</label>
+	          </div>
+	        </div>
+	      
+	  </div>
+	  <div class="ui divider"></div>
+	  <div class="actions">
+	    <div class="ui positive right labeled icon button" ng-click="saveData()">
+	      Create proof.
+	      <i class="checkmark icon"></i>
+	    </div>
+	    </form>
+	  </div>
+	</div>
+
+</section>
