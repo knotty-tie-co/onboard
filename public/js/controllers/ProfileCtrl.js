@@ -2,7 +2,7 @@ angular.module('ProfileCtrl', []).controller('ProfileController', function($scop
 
 
 	var self = this;
-	  self.step = 2;
+	  self.step = 1;
 	  self.descriptors = {
 	  	modern: false,
 	  	classic: false,
@@ -30,8 +30,17 @@ angular.module('ProfileCtrl', []).controller('ProfileController', function($scop
 	  };
 
 	  self.descriptorIsSelected = function(descriptor){
-	  	obj = self['descriptors'];
+	  	obj = self.descriptors;
 	  	return obj[descriptor];
+	  };
+
+	  self.descriptorsHaveSelections = function(){
+	  	for (var i in self.descriptors){
+	  		if (self.descriptors[i] === true){
+	  			return true;
+	  		}
+	  	}
+	  	return false;
 	  };
 
 	  });
