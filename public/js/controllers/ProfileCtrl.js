@@ -1,15 +1,10 @@
-angular.module('ProfileCtrl', []).controller('ProfileController', function($scope, $http, $routeParams) {
+angular.module('ProfileCtrl', []).controller('ProfileController', function($scope, $http, $routeParams, ProfileService) {
 
+	console.log(ProfileService.descriptors)
 
 	var self = this;
 	  self.step = 1;
-	  self.descriptors = {
-	  	modern: false,
-	  	classic: false,
-	  	vintage: false,
-	  	rustic: false,
-	  	minimal: false
-	  };
+	  self.descriptors = ProfileService.descriptors;
 
 	  self.setStep = function(step){
 	  	self.step = step;
@@ -27,6 +22,7 @@ angular.module('ProfileCtrl', []).controller('ProfileController', function($scop
 	  	} else {
 	  		obj[which] = false;
 	  	}
+	  	console.log(ProfileService.descriptors);
 	  };
 
 	  self.descriptorIsSelected = function(descriptor){
