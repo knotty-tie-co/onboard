@@ -1,4 +1,4 @@
-angular.module('proofViewApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'DealCtrl', 'ProofCtrl', 'ProfileCtrl', 'ProfileService'])
+angular.module('proofViewApp', ['appRoutes', 'MainCtrl', 'DealCtrl', 'ProofCtrl', 'ProfileCtrl', 'ProfileService'])
 	.config(function ($sceProvider) {
     $sceProvider.enabled(false);
 });

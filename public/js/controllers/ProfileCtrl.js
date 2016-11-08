@@ -1,4 +1,4 @@
-angular.module('ProfileCtrl', []).controller('ProfileController', function($scope, $http, $routeParams, ProfileService) {
+angular.module('ProfileCtrl', []).controller('ProfileController', function($scope, $http, ProfileService) {
 
 	console.log(ProfileService.descriptors)
 
