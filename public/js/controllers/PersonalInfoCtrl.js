@@ -30,6 +30,6 @@ angular.module('PersonalInfoCtrl', []).controller('PersonalInfoController', func
 	self.saveCustomerInfo = function (){
 		console.log(self.customer);
 		ProfileService.details.customer = self.customer;
-		ProfileService.saveProfile();
+		ProfileService.zapAndSave();
 	};
 });

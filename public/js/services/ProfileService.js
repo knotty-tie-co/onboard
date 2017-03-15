@@ -227,6 +227,7 @@ angular.module('ProfileService', [])
 
 	profile.zapAndSave = function(){
 		profile.markCompleted();
+		console.log("profile id: " +profile.id);
 		if (profile.id === null) {
 			$http
 			    .post('/api/design-requests', profile.details)
@@ -248,17 +249,17 @@ angular.module('ProfileService', [])
 	};
 
 	profile.zapToCrm = function(){
-		var zapPayload = {
-			customer : profile.details.customer,
-			completed : profile.details.completed,
-			colors : profile.details.colors,
-			patterns : profile.details.selectedPatterns,
-			products : profile.details.products,
-			databaseId : profile.id,
-			values : profile.details.values,
-			customRequest : profile.details.customRequest,
-			estimate : profile.details.estimate,
-			descriptors : profile.details.selectedDescriptors,
+		var zapPayload = {};
+			zapPayload.customer = profile.details.customer;
+			zapPayload.completed = profile.details.completed;
+			zapPayload.colors = profile.details.colors;
+			zapPayload.patterns = profile.details.selectedPatterns;
+			zapPayload.products = profile.details.products;
+			zapPayload.databaseId = profile.id;
+			zapPayload.values = profile.details.values;
+			zapPayload.customRequest = profile.details.customRequest;
+			zapPayload.estimate = profile.details.estimate;
+			zapPayload.descriptors = profile.details.selectedDescriptors;
 		};
 		$http({
 		      method  : "POST",
