@@ -36,7 +36,7 @@
 	};
 
 	self.logIn = function() {
-		var date = moment(self.logInWeddingDate).format();
+		var date = moment.utc(self.logInWeddingDate).format();
 		$http
 		    .get('/api/design-requests?customer.email='+self.logInEmail+"&customer.weddingDate="+date)
 		    .then(function(response){
