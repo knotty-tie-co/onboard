@@ -132,7 +132,7 @@
 								<i class="left arrow icon"></i>
 								Back
 							</button>
-							<button class="ui right labeled icon button" ui-sref="create-profile-confirmation" ng-click="profile.zapAndSave()" ng-class="{'positive': profile.customer.firstName && profile.customer.lastName && profile.customer.phoneNumber, 'disabled': !(profile.customer.firstName && profile.customer.lastName && profile.customer.phoneNumber  && !profile.editEmail)}">
+							<button class="ui right labeled icon button" ui-sref="create-profile-confirmation" ng-click="profile.saveCustomerInfo()" ng-class="{'positive': profile.customer.firstName && profile.customer.lastName && profile.customer.phoneNumber, 'disabled': !(profile.customer.firstName && profile.customer.lastName && profile.customer.phoneNumber  && !profile.editEmail)}">
 								<i class="right arrow icon"></i>
 								Submit
 							</button>
