@@ -8,5 +8,8 @@
     "method-override": "~2.0.2",
     "mongoose": "~4.5.9",
     "semantic-ui": "^2.2.4"
+  },
+  "engines": {
+    "node" : "6.4.0"
   }
 }
