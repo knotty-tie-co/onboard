@@ -1,21 +1,106 @@
 <div ng-controller="ProfileController as profile">
-	<div class="ui main text">
-		<div class="ui">
-				<center>
-					<h2 class="ui header">Welcome to Knotty Tie Co!</h2>
-					<h3 class="ui header">Custom wedding ties, bow ties, and pocket squares made just for you.</h3>
-
-					<br/>
-					<div class="twelve wide column centered">
-						<div class="ui container">
-							<img class="ui fluid rounded image" src="./assets/wedding-photo.png">
-							<br/>
-							<p>We'll start by asking a few simple questions to find your style.</p>
-							<button class="ui positive button" ui-sref="create-profile-step-1">I'm Ready</button>
-						</div>
+	<div class="ui">
+		<div class="ui  grid">
+			<div class="one column centered row">
+				<div class="column">
+					<h1 class="ui center aligned header">Start a Custom Wedding Design</h1>
+				</div>
+			</div>
+		</div>
+		<div class="ui stretched stackable grid">
+			<div class="eight wide computer sixteen wide tablet column">
+				<div class="ui center aligned segment">
+					<h3 class="ui header">
+						We'll walk you through the process:
+					</h3>
+					<p>
+						1. Pick patterns and colors for your designs<br>
+						2. Select your products and get an estimate<br>
+						3. Get a proof from one of our style experts<br>
+					</p>
+					<h4 class="ui header">No commitment needed, no upfront charges.</h4>
+					<div class="ui fluid buttons">
+						<button class="ui button" id="logInButton" ng-hide="profile.localId">Log in</button>
+						<button class="ui button" ng-hide="!profile.localId" ng-click="profile.logOut()" href="/create-profile">Log out</button>
+						<div class="or"></div>
+						<button ui-sref="create-profile-descriptors" class="ui primary button" ng-click="profile.markStageCompleted()">Get Started</button>
 					</div>
-				</center>
+					<h5 ng-show="profile.logInFailed" class="ui red header">Log in failed. Are you sure your email and wedding date are correct?</h5>
+
+				</div>
+			</div>
+			<div class="four wide computer eight wide tablet column">
+				<img class="ui fluid image" src="/images/cassierosch-205.jpg">
+			</div>
+			<div class="four wide computer eight wide tablet only column">
+				<img class="ui fluid image" src="/images/The Perfect Moment_Brianne Haagenson_03.jpg">
+			</div>
+			<div class="four wide computer eight wide tablet only column">
+				<img class="ui fluid image" src="/images/JamieBethPhotography-243.jpg">
+			</div>
+			<div class="four wide computer eight wide tablet only column">
+				<img class="ui fluid image" src="/images/JamieBethPhotography-227.jpg">
+			</div>
+			<div class="four wide computer eight wide tablet only column">
+				<img class="ui fluid image" src="/images/scottsdale-chic-poolside-styledshoot-meredithharrisphotographers319.jpg">
+			</div>
+			<div class="four wide computer eight wide tablet only column">
+				<img class="ui fluid image" src="/images/Sonja_K_Photography-6538.jpg">
+			</div>
+		</div>
+	</div>
+	<div class="ui modal" id="resume">
+		<i class="close icon"></i>
+		<div class="header">
+			Pick up where you left off
+		</div>
+		<div class="content">
+			<div class="description">
+				<p>We saved your place for you. Would you like to jump to where you last left off?</p>
+			</div>
+		</div>
+		<div class="actions">
+			<div class="ui black deny button">
+				Nope
+			</div>
+			<div class="ui positive right labeled icon button" ui-sref="create-profile-resume">
+				Yep, take me there
+				<i class="checkmark icon"></i>
+			</div>
+		</div>
+	</div>
+	<div class="ui modal" id="logInForm">
+		<i class="close icon"></i>
+		<div class="header">
+			Log in
+		</div>
+		<div class="content">
+			<form name="initialSignup" class="ui form">
+				<div class=" required field">
+					<label>
+						Email
+					</label>
+					<input type="email" ng-model="profile.logInEmail" placeholder="your email" required>
+				</div>
+				
+				<div class="required field" >
+					<label>
+						Wedding Date
+					</label>
+					<datepicker date-format="MMMM d, y">
+						<input type="text" ng-readonly="true" ng-model="profile.logInWeddingDate" placeholder="Date" required>
+					</datepicker>
+				</div>
+			</form>
+		</div>
+		<div class="actions">
+			<div class="ui positive right labeled icon button" ng-click="profile.logIn()">
+				Log in
+				<i class="checkmark icon"></i>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+

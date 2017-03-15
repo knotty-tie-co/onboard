@@ -1,0 +1,93 @@
+	<div ng-controller="ProfileController as profile">
+		<div class="ui container grid">
+			<div class="ui stackable row">
+				<div class="ui sixteen wide centered column">
+					<center>
+						<div class="ui segment">
+							<h2 class="ui header">Register to pick your patterns.</h2>
+							<p class="large text">See our top picks for you, and decide whigh patterns you would like for your digital proof. We'll save your selections so you can come back to them later with just your email and wedding date.</p>
+						</div>
+					</center>
+				</div>
+			</div>
+			<div class="ui stackable row">
+				<div class="ui eight wide centered column">
+					<form name="initialSignup" class="ui form">
+						<div class=" required field" ng-show="profile.lastStageCompleted === 'create-profile-simple-complex'">
+							<label>
+								Email
+							</label>
+							<input type="email" ng-model="profile.email" ng-change="profile.updateEmail(profile.email)" placeholder="your email" required>
+						</div>
+						<div ng-show="(profile.lastStageCompleted != 'create-profile-simple-complex') && !profile.editEmail">
+							<div class=" disabled field" >
+								<label>
+									Email
+								</label>
+								<input type="email" ng-model="profile.email" ng-change="profile.updateEmail(profile.email)" placeholder="your email" required>
+							</div>
+							<button class="ui right labeled basic icon mini button" style="margin-bottom: 15px" ng-click="profile.editEmail = true">
+								<i class="mail icon"></i>
+								Change email
+							</button>
+						</div>
+						<div ng-show="profile.editEmail">
+							<div class=" required field" >
+								<label>
+									Email
+								</label>
+								<input type="email" ng-model="profile.email" ng-change="profile.updateEmail(profile.email)" placeholder="your email" required>
+							</div>
+							<button class="ui right labeled icon mini button" style="margin-bottom: 15px" ng-click="profile.saveNewEmail()">
+								<i class="mail icon"></i>
+								Save email
+							</button>
+						</div>
+						
+						<div class="required field" ng-class="{'disabled': profile.editEmail}">
+							<label>
+								Wedding Date
+							</label>
+							<datepicker date-format="MMMM d, y">
+								<input type="text" ng-readonly="true" ng-model="profile.weddingDate" ng-change="profile.updateWeddingDate(profile.weddingDate)" placeholder="Date" required>
+							</datepicker>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="clearer"></div>
+		<div style="position: fixed; bottom: 0; padding-top: 5px; clear: both; left: 0; width: 100%;">
+			<div class="ui  padded secondary segment fluid">
+				<div class="ui container">
+					<center>
+						<p>Enter your email and wedding date to continue<br/></p>
+						<div class="ui centered buttons">
+							<button class="ui left labeled icon button" ui-sref="create-profile-simple-complex" ng-class="{'disabled': profile.editEmail}" ng-click="profile.saveProfile()" >
+								<i class="left arrow icon"></i>
+								Back
+							</button>
+							<button class="ui right labeled icon button" ui-sref="create-profile-select-patterns" ng-class="{'primary active': initialSignup.$valid, 'disabled': (!initialSignup.$valid || profile.editEmail)}" ng-click="profile.newSignUp()">
+								<i class="right arrow icon"></i>
+								Next
+							</button>
+						</div>
+					</center>	
+				</div>
+			</div>
+		</div>
+		<div class="ui modal" id="profileExists">
+			<div class="header">
+				You already have a design request
+			</div>
+			<div class="content">
+				You've already started a design request with this email and wedding date. We saved it where you left off.
+			</div>
+			<div class="actions">
+				<div class="ui positive right labeled icon button" ui-sref="create-profile-resume" ng-click="profile.logIn()">
+					Go there
+					<i class="right arrow icon"></i>
+				</div>
+			</div>
+		</div>
+	</div>

@@ -11,7 +11,7 @@ mongoose.connect(
 	process.env.MONGODB_URI ||
 	process.env.MONGOLAB_URI ||
 	process.env.MONGOHQ_URL ||
-	'mongodb://localhost/proofView');
+	'mongodb://localhost/design-requests');
 	
 // config files
 var db = require('./config/db');
@@ -31,7 +31,7 @@ app.use(express.static(__dirname + '/public')); // set the static files location
 require('./app/routes')(app); // pass our application into our routes
 
 // models
-require('./app/models/Deal');
+// require('./app/models/designRequest.js');
 
 // start app ===============================================
 app.listen(process.env.PORT || 8080, function () {

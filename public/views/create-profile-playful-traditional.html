@@ -1,0 +1,96 @@
+<div ng-controller="ProfileController as profile">
+	<div class="ui grid">
+		<div class="ui stackable row">
+			<div class="ui sixteen wide centered column">
+				<center>
+					<div class="ui segment">
+						<h2 class="ui header">Traditional or playful?</h2>
+						<p class="large text">Do you prefer patterns that are more traditional or more playful?
+					</div>
+				</center>
+			</div>
+		</div>
+		<div class="ui row">
+			<div class="ui sixteen wide centered column">
+				<center>
+					<input ng-model="profile.values.playfulness" ng-change="profile.updatePlayfulness(profile.values.playfulness)" type="range" min="0" max="2" step="1" style="width: 90%;">
+				</center>
+			</div>
+		</div>
+		<div class="ui three column row">
+			<div class="ui column">
+				<h3>Traditional</h3>
+			</div>
+			<div class="ui column">
+				<h3 align="center">In Between</h3>
+			</div>
+			<div class="ui column">
+				<h3 align="right">Playful</h3>
+			</div>
+		</div>
+	</div>
+
+	<div ng-show="profile.values.playfulness === null">
+	<br>
+		<div class="ui secondary very padded segment">
+			<center>
+			<i class="arrow left large icon"></i><i class="arrow right large icon"></i>
+			<br>
+			<br>
+			<p class="large text">Move the slider to see examples</p>
+			</center>
+		</div>
+	</div>
+	<div class="ui three column grid" ng-show="profile.values.playfulness == 2">
+		<div class="column">
+			<img class="ui fluid image" src="/images/Space-Junk-Bow-Tie-Zoom.jpg">
+		</div>
+		<div class="column">
+			<img class="ui fluid image" src="/images/ThePerfectMoment_Brianne Haagenson_02.jpg">
+		</div>
+		<div class="column">
+			<img class="ui fluid image" src="/images/Pineapple-Bow-Tie.jpg">
+		</div>
+	</div>
+	<div class="ui three column grid" ng-show="profile.values.playfulness == 1">
+		<div class="column">
+			<img class="ui fluid image" src="/images/Ashley Kidder Photo-99.jpg">
+		</div>
+		<div class="column">
+			<img class="ui fluid image" src="/images/scottsdale-chic-poolside-styledshoot-meredithharrisphotographers308.jpg">
+		</div>
+		<div class="column">
+			<img class="ui fluid image" src="/images/squares.png">
+		</div>
+	</div>
+	<div class="ui three column grid" ng-show="profile.values.playfulness == 0">
+		<div class="column">
+			<img class="ui fluid image" src="/images/JamieBethPhotography-227.jpg">
+		</div>
+		<div class="column">
+			<img class="ui fluid image" src="/images/Colorful-Stripes-Tie-on-Box.jpg">
+		</div>
+		<div class="column">
+			<img class="ui fluid image" src="/images/020516_Alchemy Creative_02.jpg">
+		</div>
+	</div>
+	<div class="clearer"></div>
+	<div style="position: fixed; bottom: 0; padding-top: 5px; clear: both; left: 0; width: 100%;">
+		<div class="ui  padded secondary segment fluid">
+			<div class="ui container">
+				<center>
+					<div class="ui centered buttons">
+						<button class="ui left labeled icon button" ui-sref="create-profile-descriptors" >
+							<i class="left arrow icon"></i>
+							Back
+						</button>
+						<button class="ui right labeled icon button" ui-sref="create-profile-simple-complex" ng-click="profile.markStageCompleted()" ng-class="{'primary': profile.values.playfulness || profile.values.playfulness === 0, 'disabled': profile.values.playfulness === null}">
+							<i class="right arrow icon"></i>
+							Next
+						</button>
+					</div>
+				</center>	
+			</div>
+		</div>
+	</div>
+</div>

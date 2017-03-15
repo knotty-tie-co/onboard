@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "dependencies": {
     "angular": "latest",
-    "angular-route": "latest"
+    "angular-route": "latest",
+    "semantic-ui-calendar": "^0.0.6",
+    "angularjs-datepicker": "^2.1.12"
   },
   "homepage": "https://github.com/scotch-io/starter-node-angular",
   "authors": [

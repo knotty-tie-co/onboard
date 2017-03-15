@@ -9,50 +9,63 @@
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="libs/semantic/dist/semantic.min.css">
 	<link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
-	<link rel="stylesheet" href="libs/easy-zoom/easyzoom.css">
-
+	<link rel="stylesheet" href="/bower_components/semantic-ui-calendar/dist/calendar.min.css" />
+	<link rel="stylesheet" href="/libs/angularjs-datepicker/dist/angular-datepicker.css" />
 	<!-- JS -->
 	<script src="libs/angular/angular.min.js"></script>
 	<script src="libs/angular-route/angular-route.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
 	<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
 	<script src="libs/semantic/dist/semantic.min.js"></script>
+	<script type="text/javascript" src="/libs/semantic-ui-calendar/dist/calendar.min.js"></script>
+	<script type="text/javascript" src="/libs/angularjs-datepicker/dist/angular-datepicker.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.14/angular-filter.min.js"></script>
+	<script src="libs/angular-semantic-ui/dist/angular-semantic-ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
 
 	<!-- ANGULAR CUSTOM -->
 	<script src="js/controllers/MainCtrl.js"></script>
 	<script src="js/controllers/DealCtrl.js"></script>
 	<script src="js/controllers/ProofCtrl.js"></script>
 	<script src="js/controllers/ProfileCtrl.js"></script>
+	<script src="js/controllers/ColorCtrl.js"></script>
+	<script src="js/controllers/PersonalInfoCtrl.js"></script>
+	<script src="js/controllers/ColorCtrl.js"></script>
+	<script src="js/controllers/ProductCtrl.js"></script>
+	<script src="js/controllers/ResumeCtrl.js"></script>
 	<script src="js/services/ProfileService.js"></script>
+	<script src="js/services/PatternService.js"></script>
+	<script src="js/services/ColorService.js"></script>
 	<script src="js/appRoutes.js"></script>
 	<script src="js/app.js"></script>
 	
 	
 </head>
 <body ng-app="proofViewApp">
+	<div id="content">
 
-
-	<div class="ui borderless fixed large menu">
+	<div class="ui borderless large menu">
 		<div class="ui container">
 			<div class="item">
 				<img class="ui tiny image" src="assets/knotty-logo-medium.png">
 			</div>
-			<a class="item">
-				About Us
-			</a>
-			<a class="item">
-				FAQ
-			</a>
-			<a class="item">
-				Help
-			</a>
 		</div>
 	</div>
-	<br/>
-	<br/>
-	<br/>
 	<!-- ANGULAR DYNAMIC CONTENT -->
-	<div ui-view></div>
-
+	<div class="ui container" ui-view  autoscroll="false" ></div>
+	</div>
+	<script>!function(e,o,n){window.HSCW=o,window.HS=n,n.beacon=n.beacon||{};var t=n.beacon;t.userConfig={},t.readyQueue=[],t.config=function(e){this.userConfig=e},t.ready=function(e){this.readyQueue.push(e)},o.config={docs:{enabled:!0,baseUrl:"//knottytie.helpscoutdocs.com/"},contact:{enabled:!0,formId:"c79574f3-9aca-11e6-91aa-0a5fecc78a4d"}};var r=e.getElementsByTagName("script")[0],c=e.createElement("script");c.type="text/javascript",c.async=!0,c.src="https://djtflbt20bdde.cloudfront.net/",r.parentNode.insertBefore(c,r)}(document,window.HSCW||{},window.HS||{});</script>
+	<script>
+	  HS.beacon.config({
+	    color: '#ea6c43',
+	    topics: [
+	      { val: 'need-help', label: 'Need help with the product' },
+	      { val: 'bug', label: 'I think I found a bug'}
+	    ],
+	    attachment: true,
+	    icon: "question",
+	    instructions:'This is instructional text that goes above the form.'
+	  });
+	</script>
 </body>
 </html>

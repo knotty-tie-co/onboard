@@ -1,0 +1,64 @@
+<div ng-controller="ProfileController as profile">
+	<!-- <div class="ui mini fluid compact steps">
+	  <div class="active step">
+	    <i class="tasks icon"></i>
+	    <div class="content">
+	      <div class="title">Style Profile</div>
+	      <div class="description">Create your style profile</div>
+	    </div>
+	  </div>
+	  <div class="disabled step">
+	    <i class="edit icon"></i>
+	    <div class="content">
+	      <div class="title">Design Details</div>
+	      <div class="description">Add your design details</div>
+	    </div>
+	  </div>
+	  <div class="disabled step">
+	    <i class="add user icon"></i>
+	    <div class="content">
+	      <div class="title">Contact Info</div>
+	      <div class="description">Add your contact info</div>
+	    </div>
+	  </div>
+	</div> -->
+	<div class="ui container grid">
+		<div class="ui stackable row">
+			<div class="ui sixteen wide centered column">
+				<center>
+
+					<div class="ui segment">
+						<h2 class="ui header">Pick the styles that describe your wedding.</h2>
+						<p class="large text">Select as many styles that match your wedding as you would like.
+							We'll use these descriptions to help find patterns that are a good fit for you.</p>
+					</div>
+				</center>
+			</div>
+			</div>
+			<div class="ui stackable row">
+			<center>
+				<button ng-click="profile.toggleDescriptor(id)" ng-repeat="(id, descriptor) in profile.descriptors" ng-class="{'light primary': profile.descriptorIsSelected(id)}" class="ui small toggle button" style="margin: 10px;">{{descriptor.display}}</button>
+			</center>
+			</div>
+		</div>
+		<div class="clearer"></div>
+		<div style="position: fixed; bottom: 0; padding-top: 5px; clear: both; left: 0; width: 100%;">
+			<div class="ui  padded secondary segment fluid">
+				<div class="ui container">
+					<center>
+						<p>Select at least three styles to continue</p>
+					<div class="ui centered buttons">
+						<button class="ui left labeled icon button" ui-sref="create-profile" >
+							<i class="left arrow icon"></i>
+							Back
+						</button>
+						<button class="ui right labeled icon button" ui-sref="create-profile-playful-traditional" ng-click="profile.markStageCompleted()" ng-class="{'primary': profile.selectedDescriptorsCount > 2, 'disabled': profile.selectedDescriptorsCount < 3}">
+							<i class="right arrow icon"></i>
+							Next
+						</button>
+					</div>
+					</center>	
+				</div>
+		</div>
+	</div>
+</div>

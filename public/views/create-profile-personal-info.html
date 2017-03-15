@@ -1,0 +1,144 @@
+	<div ng-controller="PersonalInfoController as profile">
+		<div class="ui grid">
+			<div class="ui stackable row">
+				<div class="ui sixteen wide centered column">
+					<center>
+						<div class="ui segment">
+							<h2 class="ui header">One last thing...</h2>
+							<p class="large text">We'll keep it simple. Add your name, phone number, and any additional information about your design ideas.</p>
+						</div>
+					</center>
+				</div>
+			</div>
+			<div class="ui stackable row">
+				<div class="ui eight wide centered column">
+					<form name="initialSignup" class="ui form">
+						<div class="required field" ng-class="{'disabled': profile.editEmail}">
+							<label>
+								First name
+							</label>
+							<input type="text" ng-model="profile.customer.firstName" required>
+						</div>
+						<div class="required field" ng-class="{'disabled': profile.editEmail}">
+							<label>
+								Last name
+							</label>
+							<input type="text" ng-model="profile.customer.lastName" required>
+						</div>
+						<div ng-show="(profile.lastStageCompleted != 'create-profile-simple-complex') && !profile.editEmail">
+							<div class=" disabled field" >
+								<label>
+									Email
+								</label>
+								<input type="email" ng-model="profile.customer.email" ng-change="profile.updateEmail(profile.email)" placeholder="your email" required>
+							</div>
+							<button class="ui right labeled icon mini  basic button" style="margin-bottom: 15px" ng-click="profile.editEmail = true">
+								<i class="mail icon"></i>
+								Change email
+							</button>
+						</div>
+						<div ng-show="profile.editEmail">
+							<div class=" required field" >
+								<label>
+									Email
+								</label>
+								<input type="email" ng-model="profile.customer.email" ng-change="profile.updateEmail(profile.email)" placeholder="your email" required>
+							</div>
+							<button class="ui right labeled icon mini button" style="margin-bottom: 15px" ng-click="profile.saveNewEmail()">
+								<i class="mail icon"></i>
+								Save email
+							</button>
+						</div>
+						
+						<div class="required field" ng-class="{'disabled': profile.editEmail}" ng-click="profile.saveProfile()">
+							<label>
+								Wedding Date
+							</label>
+							<datepicker date-format="MMMM d, y">
+								<input type="text" ng-readonly="true" ng-model="profile.
+								weddingDate" ng-change="profile.updateWeddingDate(profile.weddingDate)" placeholder="Date" required  style="margin-bottom: 15px">
+							</datepicker>
+						</div>
+						<div class="required field" ng-class="{'disabled': profile.editEmail}">
+							<label>
+								Phone number
+							</label>
+							<input type="text" ng-model="profile.customer.phoneNumber" placeholder="303-123-4567" required>
+						</div>
+						<div class="field" ng-class="{'disabled': profile.editEmail}">
+							<label>
+								Design notes
+							</label>
+							<textarea ng-model="profile.customer.designNotes" placeholder="If you have more information about your design ideas, you can add it here. If you have a question, we'll take care of that as well!"></textarea>
+						</div>
+					</form>
+					<h3>Review your submission</h3>
+					<h5>Patterns <a href=""><i class="pencil icon" ui-sref="create-profile-select-patterns"></i></a></h5>
+					<div class="ui three doubling cards">
+						<div class="ui card" ng-repeat="pattern in profile.patterns | filter: pattern.selected == true">
+							<div class="image">
+								<img src="http://placehold.it/600?text=traditional+600px">
+							</div>
+							<div class="content">
+								<div class="description">
+									{{pattern.patternName}}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ng-show="profile.customRequest">
+						<h5>Your custom design ideas:</h5>
+						<p> {{profile.customRequest}} </p>
+					</div>
+					<h5>Colors <a href="#"><i class="pencil icon" ui-sref="create-profile-select-colors"></i></a></h5>
+					<div class="ui three doubling cards" >
+						<div class="ui card" ng-repeat="color in profile.colors | filter: {colorName : '!Select a color'}" ng-click="profile.selectSwatch(color.colorSwatchID)">
+							<svg class="image choose-swatch">
+								<rect width="600"  height="400" ng-style="{'fill': color.hex}" />
+							</svg>
+							<div class="content">
+								<div class="description">
+									<a class="choose-swatch" ng-show="color.colorName == 'Select a color'">{{ color.colorName }}</a> <span ng-hide="color.colorName == 'Select a color'">{{color.colorName}}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<h5>Products <a href="#"><i class="pencil icon" ui-sref="create-profile-select-products"></i></h5></a>
+					<div class="ui segments">
+						<div class="ui segment" ng-show="profile.products.neckties">
+							<p>Ties: {{profile.products.neckties}}</p>
+						</div>
+						<div class="ui segment" ng-show="profile.products.bowTies">
+							<p>Bow Ties: {{profile.products.bowTies}}</p>
+						</div>
+						<div class="ui segment" ng-show="profile.products.pocketSquares">
+							<p>Pocket Squares: {{profile.products.pocketSquares}}</p>
+						</div>
+						<div class="ui segment" ng-show="profile.products.scarves">
+							<p>Scarves: {{profile.products.scarves}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clearer"></div>
+		<div style="position: fixed; bottom: 0; padding-top: 5px; clear: both; left: 0; width: 100%;">
+			<div class="ui  padded secondary segment fluid">
+				<div class="ui container">
+					<center>
+						<span ng-show="!initialSignup.$valid"><p><strong>Please complete the information above to continue. <br/></strong></p></span>
+						<div class="ui centered buttons">
+							<button class="ui left labeled icon button" ui-sref="create-profile-select-products"  ng-class="{'disabled': profile.editEmail}">
+								<i class="left arrow icon"></i>
+								Back
+							</button>
+							<button class="ui right labeled icon button" ui-sref="create-profile-confirmation" ng-click="profile.zapAndSave()" ng-class="{'positive': profile.customer.firstName && profile.customer.lastName && profile.customer.phoneNumber, 'disabled': !(profile.customer.firstName && profile.customer.lastName && profile.customer.phoneNumber  && !profile.editEmail)}">
+								<i class="right arrow icon"></i>
+								Submit
+							</button>
+						</div>
+					</center>	
+				</div>
+			</div>
+		</div>
+	</div>

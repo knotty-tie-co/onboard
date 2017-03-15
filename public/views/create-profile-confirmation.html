@@ -1,0 +1,103 @@
+	<div ng-controller="ProfileController as profile">
+		<div class="ui grid">
+			<div class="ui stackable row">
+				<div class="ui sixteen wide centered column">
+					<center>
+						<div class="ui segment">
+							<h2 class="ui header">Your submission has been recieved.</h2>
+							<p class="large text">We'll be following up by email in 1-2 business days with your proof, so keep an eye on your inbox! If you want to make any changes before you recieve your first proof, send us a message!</p>
+						</div>
+					</center>
+				</div>
+			</div>
+			<div class="ui stackable row">
+				<div class="ui ten wide centered column">
+					<form name="initialSignup" class="ui form">
+						<div class="disabled field">
+							<label>
+								First name
+							</label>
+							<input type="text" ng-model="profile.details.customer.firstName">
+						</div>
+						<div class="disabled field">
+							<label>
+								Last name
+							</label>
+							<input type="text" ng-model="profile.details.customer.lastName" required>
+						</div>
+							<div class=" disabled field" >
+								<label>
+									Email
+								</label>
+								<input type="email" ng-model="profile.details.customer.email">
+							</div>
+						
+						<div class="disabled field">
+							<label>
+								Wedding Date
+							</label>
+								<input type="text" ng-readonly="true" ng-model="profile.weddingDate" >
+						</div>
+						<div class="disabled field">
+							<label>
+								Phone number
+							</label>
+							<input type="text" ng-readonly="true" ng-model="profile.details.customer.phoneNumber" >
+						</div>
+						<div class="disabled field">
+							<label>
+								Design notes
+							</label>
+							<textarea ng-model="profile.details.customer.designNotes"></textarea>
+						</div>
+					</form>
+					<h3>Review your submission</h3>
+					<h5>Patterns</h5>
+					<div class="ui three doubling cards">
+						<div class="ui card" ng-repeat="pattern in profile.details.patterns | filter: pattern.selected == true">
+							<div class="image">
+								<img src="http://placehold.it/600?text=traditional+600px">
+							</div>
+							<div class="content">
+								<div class="description">
+									{{pattern.patternName}}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ng-show="profile.customRequest">
+						<h5>Your custom design ideas:</h5>
+						<p> {{profile.customRequest}} </p>
+					</div>
+					<h5>Colors</h5>
+					<div class="ui three doubling cards" >
+						<div class="ui card" ng-repeat="color in profile.colors | filter: {colorName : '!Select a color'}" ng-click="profile.selectSwatch(color.colorSwatchID)">
+							<svg class="image choose-swatch">
+								<rect width="600"  height="400" ng-style="{'fill': color.hex}" />
+							</svg>
+							<div class="content">
+								<div class="description">
+									<a class="choose-swatch" ng-show="color.colorName == 'Select a color'">{{ color.colorName }}</a> <span ng-hide="color.colorName == 'Select a color'">{{color.colorName}}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<h5>Products</h5>
+					<div class="ui segments">
+						<div class="ui segment" ng-show="profile.details.products.neckties">
+							<p>Ties: {{profile.details.products.neckties}}</p>
+						</div>
+						<div class="ui segment" ng-show="profile.details.products.bowTies">
+							<p>Bow Ties: {{profile.details.products.bowTies}}</p>
+						</div>
+						<div class="ui segment" ng-show="profile.details.products.pocketSquares">
+							<p>Pocket Squares: {{profile.details.products.pocketSquares}}</p>
+						</div>
+						<div class="ui segment" ng-show="profile.details.products.scarves">
+							<p>Scarves: {{profile.details.products.scarves}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

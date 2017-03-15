@@ -1,0 +1,170 @@
+	
+<div ng-controller="ProductController as ctrl">
+	<div class="ui  grid">
+		<div class="ui stackable row">
+			<div class="ui sixteen wide centered column">
+				<center>
+					<div class="ui segment">
+						<h2 class="ui header">Select your products.</h2>
+						<p class="large text">Update quantities to add products. It's ok if you don't know the exact totals now, we can always change this before you place your order.</a ></p>
+					</div>
+				</center>
+			</div>
+		</div>
+	</div>
+	<div class="ui four doubling cards">
+		<div class="card">
+			<div class="image">
+				<img src="http://placehold.it/600?text=traditional+600px">
+			</div>
+			<div class="content">
+				<div class="header">
+					Necktie
+				</div>
+			</div>
+			<div class="content">
+				<div class="meta">
+					Available in three widths, with extra-long ties also available. Adult or kid's sizes.
+				</div>
+			</div>
+			<div class="content">
+				<div class="ui fluid labeled input">
+				  <div class="ui label">
+				    Quantity
+				  </div>
+				  <input type="number" min="0" placeholder="0" ng-model="ctrl.products.neckties" ng-change="ctrl.updateTotals()">
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="image">
+				<img src="http://placehold.it/600?text=traditional+600px">
+			</div>
+			<div class="content">
+				<div class="header">
+					Bow Tie
+				</div>
+			</div>
+			<div class="content">
+				<div class="meta">
+					Adult self-tie and children's pre-tied styles available.
+				</div>
+			</div>
+			<div class="content">
+				<div class="ui fluid labeled input">
+				  <div class="ui label">
+				    Quantity
+				  </div>
+				  <input type="number" min="0" placeholder="0" ng-model="ctrl.products.bowTies" ng-change="ctrl.updateTotals()">
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="image">
+				<img src="http://placehold.it/600?text=traditional+600px">
+			</div>
+			<div class="content">
+				<div class="header">
+					Pocket Square
+				</div>
+			</div>
+			<div class="content">
+				<div class="meta">
+					As an add-on, or on their own.
+				</div>
+			</div>
+			<div class="content">
+				<div class="ui fluid labeled input">
+				  <div class="ui label">
+				    Quantity
+				  </div>
+				  <input type="number" min="0" placeholder="0" ng-model="ctrl.products.pocketSquares" ng-change="ctrl.updateTotals()">
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="image">
+				<img src="http://placehold.it/600?text=traditional+600px">
+			</div>
+			<div class="content">
+				<div class="header">
+					Scarf
+				</div>
+			</div>
+			<div class="content">
+				<div class="meta">
+					Square, rectangular, and infinity styles available.
+				</div>
+			</div>
+			<div class="content">
+				<div class="ui fluid labeled input">
+				  <div class="ui label">
+				    Quantity
+				  </div>
+				  <input type="number" min="0" placeholder="0" ng-model="ctrl.products.scarves" ng-change="ctrl.updateTotals()">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui  grid">
+		<div class="ui stackable row">
+			<div class="ui sixteen wide centered column">
+				<center>
+					<div class="ui segment">
+						<h3 class="ui header">Your estimate</h3>
+						<p class="large text">We won't cahrge you a thing until your happy with your designs and ready to order. Here's an idea of what your order will cost:</p>
+						<div class="ui stackable row">
+						<table class="ui celled table">
+						  <tbody>
+						    <tr>
+						      <td>Ties, bow ties, and scarves</td>
+						      <td>{{ ctrl.estimate.bulkEligibleProductsSubtotal | currency:"$":0 }}</td>
+						    </tr>
+						    <tr>
+						      <td>Pocket squares</td>
+						      <td>{{ctrl.estimate.pocketSquaresSubtotal | currency:"$":0 }}</td>
+						    </tr>
+						    <tr ng-show="ctrl.estimate.bulkDiscountTotal > 0">
+						      <td>Bulk discount (You're saving <span ng-show="ctrl.estimate.bulkDiscountPerUnit > 0">{{ ctrl.estimate.bulkDiscountPerUnit | currency:"$":0 }} on each tie, bow tie or scarf</span><span ng-show="(ctrl.estimate.bulkDiscountPerUnit > 0) && (ctrl.estimate.pocketSquareDiscountPerUnit > 0)">, and </span><span ng-show="ctrl.estimate.pocketSquareDiscountPerUnit > 0">{{ ctrl.estimate.pocketSquareDiscountPerUnit | currency:"$":0 }} per Pocket Square </span>)</td>
+						      <td>-{{ctrl.estimate.bulkDiscountTotal | currency:"$":0 }}</td>
+						    </tr>
+						    <tr>
+						      <td>Design Fee (Covers proofs, changes, and consultation with designer.)</td>
+						      <td>$20</td>
+						    </tr>
+						  </tbody>
+						  <tfoot>
+						  	
+						    <tr><th><strong>Estimated Total</strong> (Nothing is billed until you're happy with your designs and ready to order.)</th>
+						    <th><strong>{{ ctrl.estimate.estimatedTotal | currency:"$":0 }}</strong></th>
+						  </tr></tfoot>
+						</table>
+						<p>Shipping is not included in this estimate. Your designer can help estimate your shipping cost after you submit your design request.</p>
+					</div>
+				</center>
+			</div>
+		</div>
+	</div>
+
+	<div class="clearer"></div>
+	<div style="position: fixed; z-index: 1000 ; bottom: 0; padding-top: 5px; clear: both; left: 0; width: 100%;">
+		<div class="ui  padded secondary segment fluid">
+			<center>
+				<p>Add your products to continue.<br/></p>
+				<div class="ui centered buttons">
+					<button class="ui left labeled icon button" ui-sref="create-profile-select-colors" >
+						<i class="left arrow icon"></i>
+						Back
+					</button>
+					<button class="ui right labeled icon button" ui-sref="create-profile-personal-info" ng-click="ctrl.saveProfile()" ng-class="{'primary': ctrl.estimate.estimatedTotal > 20, 'disabled': ctrl.estimate.estimatedTotal < 21}">
+						<i class="right arrow icon"></i>
+						Next
+					</button>
+				</div>
+			</center>	
+		</div>
+	</div>
+
+</div>
+

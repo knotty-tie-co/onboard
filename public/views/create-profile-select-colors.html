@@ -1,0 +1,133 @@
+
+<div ng-controller="ColorController as profile">
+	<div class="ui  grid">
+		<div class="ui stackable row">
+			<div class="ui sixteen wide centered column">
+				<center>
+					<div class="ui segment">
+						<h2 class="ui header">Select your colors.</h2>
+						<p class="large text">Select the colors you would like for your products. Your designer will use these colors to create your design proof. Colors naturally vary from screen to product, so we offer a printed color sample for a small fee after you submit your design request.</a ></p>
+					</div>
+				</center>
+			</div>
+		</div>
+	</div>
+	<div class="ui header">
+		<h3>Your colors:</h3>
+	</div>
+	<div class="ui six doubling cards" >
+		<div class="ui link card" ng-repeat="color in profile.colors" ng-click="profile.selectSwatch(color.colorSwatchID)">
+			<svg class="image choose-swatch">
+				<rect width="600"  height="600" ng-style="{'fill': color.hex}" />
+			</svg>
+			<div class="content">
+				<div class="description">
+					<a class="choose-swatch" ng-show="color.colorName == 'Select a color'">{{ color.colorName }}</a> <span ng-hide="color.colorName == 'Select a color'">{{color.colorName}}</span><i class="right floated remove icon" ng-hide="color.colorName == 'Select a color'" ng-click="profile.clearColorSelection(color.colorSwatchID)"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="clearer"></div>
+	<div style="position: fixed; z-index: 1000 ; bottom: 0; padding-top: 5px; clear: both; left: 0; width: 100%;">
+		<div class="ui  padded secondary segment fluid">
+			<center>
+				<p><strong>Select at least 2 colors to continure.<br/></strong></p>
+				<div class="ui centered buttons">
+					<button class="ui left labeled icon button" ui-sref="create-profile-select-patterns" >
+						<i class="left arrow icon"></i>
+						Back
+					</button>
+					<button class="ui right labeled primary icon button" ui-sref="create-profile-select-products" ng-click="profile.saveProfile()" ng-class="{'active': profile.colorCount > 1, 'disabled': profile.colorCount < 2}">
+						<i class="right arrow icon"></i>
+						Next
+					</button>
+				</div>
+			</center>	
+		</div>
+	</div>
+
+	<div class="ui modal" id="choose-color"
+	<i class="close icon"></i>
+	<div class="header">
+		Pick your color
+	</div>
+	<div class="content">
+		<div class="description">
+			<div class="ui header">Choose from these colors</div>
+			<p>We've made a lot of patterns, but we haven't designed it all yet. If you have an idea, we can make it happen. Let us know what you have in mind!</p>
+		</div>
+		<div class="ui labeled icon top pointing dropdown centered button">
+		  <i class="filter icon"></i>
+		  <span class="text">Filter Colors</span>
+		  <div class="menu">
+		    <div class="header">
+		      <i class="eyedropper icon"></i>
+		      Filter by Color
+		    </div>
+		    <div class="item" ng-click="profile.setColorFilter('')">
+		      All Colors
+		    </div>
+		    <div class="item" ng-click="profile.setColorFilter('Red')">
+		      <div class="ui red empty circular label" ></div>
+		      Red
+		    </div>
+		    <div class="item" ng-click="profile.setColorFilter('Orange')">
+		      <div class="ui orange empty circular label"></div>
+		      Orange
+		    </div>
+		    <div class="item" ng-click="profile.setColorFilter('Yellow')">
+		      <div class="ui yellow empty circular label" ></div>
+		      Yellow
+		    </div>
+		    <div class="item" ng-click="profile.setColorFilter('Green')">
+		      <div class="ui green empty circular label" ></div>
+		      Green
+		    </div>
+		    <div class="item" ng-click="profile.setColorFilter('Blue')">
+		      <div class="ui blue empty circular label"></div>
+		      Blue
+		    </div>
+		    <div class="item" ng-click="profile.setColorFilter('Purple')">
+		      <div class="ui purple empty circular label"></div>
+		      Purple
+		    </div>
+		    <div class="item" ng-click="profile.setColorFilter('Pink')">
+		      <div class="ui pink empty circular label"></div>
+		      Pink
+		    </div>
+			<div class="item" ng-click="profile.setColorFilter('Gray')">
+			  <div class="ui grey empty circular label"></div>
+			  Gray
+			</div>
+			<div class="item" ng-click="profile.setColorFilter('Black')">
+			  <div class="ui black empty circular label"></div>
+			  Black
+			</div>
+			<div class="item" ng-click="profile.setColorFilter('Off White')">
+			  <div class="ui white empty circular label"></div>
+			  Off White
+			</div>
+		  </div>
+		</div>
+		<br>
+		<br>
+		<div class="ui six doubling cards" >
+			<div class="ui link card" ng-repeat="option in profile.colorOptions | filter: {category : profile.colorFilter}" ng-click="profile.selectColor(option.hex, option.colorName)">
+				<svg class="color-chosen image">
+					<rect width="600"  height="600" ng-style="{'fill': option.hex}" />
+				</svg>
+				<div class="content">
+					<div class="description">
+						{{option.colorName}}
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+</div>
+
+</div>
+

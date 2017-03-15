@@ -1,10 +1,21 @@
-angular.module('proofViewApp', ['appRoutes', 'MainCtrl', 'DealCtrl', 'ProofCtrl', 'ProfileCtrl', 'ProfileService'])
-	.config(function ($sceProvider) {
-    $sceProvider.enabled(false);
+angular.module('proofViewApp', ['appRoutes', 'MainCtrl', 'DealCtrl', 'ProofCtrl', 'ProfileCtrl', 'ColorCtrl', 'ProductCtrl', 'PersonalInfoCtrl', 'ResumeCtrl', 'ProfileService', 'PatternService', 'ColorService', '720kb.datepicker', 'angular.filter'])
+.config(function ($sceProvider) {
+	$sceProvider.enabled(false);
+})
+.run(function($rootScope, $state, $stateParams){
+  $rootScope.$state = $state;
+  $rootScope.$stateParams = $stateParams;
+  $rootScope.$on('$stateChangeSuccess', function() {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+  $rootScope.show_modal = true;
+  $rootScope.close_modal=function(){
+  	$rootScope.show_modal=false;
+  };
+  });
 });
 
-	$(document).ready(function(){
-     $('#addProof').click(function(){
-        $('#modaldiv').modal('show');    
-     });
+$(document).ready(function(){
+	$('#addProof').click(function(){
+	 $('#modaldiv').modal('show');  
+	 });
 });

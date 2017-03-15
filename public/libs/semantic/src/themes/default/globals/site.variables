@@ -6,7 +6,7 @@
        Fonts
 --------------------*/
 
-@fontName          : 'Lato';
+@fontName          : 'Josefin Sans';
 @fontSmoothing     : antialiased;
 
 @headerFont        : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -47,10 +47,10 @@
     Brand Colors
 --------------------*/
 
-@primaryColor        : @blue;
+@primaryColor        : #ea6c43;
 @secondaryColor      : @black;
 
-@lightPrimaryColor   : @lightBlue;
+@lightPrimaryColor   : f2774f;
 @lightSecondaryColor : @lightBlack;
 
 /*--------------
@@ -764,8 +764,8 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@primaryColorFocus    : saturate(darken(@primaryColor, 8), 20, relative);
-@secondaryColorFocus  : saturate(lighten(@secondaryColor, 8), 20, relative);
+@primaryColorFocus    : saturate(darken(@primaryColor, 4), 5, relative);
+@secondaryColorFocus  : saturate(lighten(@secondaryColor, 4), 5, relative);
 
 @redFocus             : saturate(darken(@red, 8), 20, relative);
 @orangeFocus          : saturate(darken(@orange, 8), 20, relative);

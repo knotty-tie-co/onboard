@@ -1,11 +1,49 @@
 var Deal = require('./models/Deal.js');
 var Proof = require('./models/Proof.js');
+var DesignRequest = require('./models/DesignRequest.js');
 
 module.exports = function(app) {
 
 	// server routes ===========================================================
 	// handle things like api calls
 	// authentication routes
+
+		//Design Requests API -------------------------------------------------
+
+
+		    /* POST /design-requests */
+		    app.post('/api/design-requests', function(req, res, next) {
+		      DesignRequest.create(req.body, function (err, designRequest) {
+		        if (err) return next(err);
+		        res.json(designRequest);
+		      });
+		    });
+
+		    /* PUT /design-requests:id */
+		    app.put('/api/design-requests/:id', function(req, res, next) {
+		      DesignRequest.findByIdAndUpdate(req.params.id, req.body, {new: true}, function (err, post) {
+		        if (err) return next(err);
+		        res.json(post);
+		      });
+		    });
+
+		    /* GET /design-requests:id */
+		    app.get('/api/design-requests/:id', function(req, res) {
+		        // use mongoose to get all songs in the database
+		        DesignRequest.findById(req.params.id, function(err, designRequest) {
+		            // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+		            if (err)
+		            	res.send(err);
+		            res.json(designRequest);
+		        });
+		    });
+
+		    /* GET /design-requests */
+		    app.get('/api/design-requests', function(req, res){
+				DesignRequest.findOne(req.query, function(error, designRequests){
+		            res.send(designRequests);
+		        });
+		    });
 
 		//DEALS API ------------------------------------------------------------
 		    // get all deals
@@ -27,9 +65,9 @@ module.exports = function(app) {
 		            if (err)
 		            	res.send(err);
 		            res.json(deal);
-		            console.log(deal) // return all songs in JSON format
+		            console.log(deal); // return all songs in JSON format
 		        });
-		        console.log(deal)
+		        console.log(deal);
 		    });
 
 		    // create song and send back all songs after creation
@@ -57,6 +95,8 @@ module.exports = function(app) {
 		        });
 
 		    });
+
+		    
 
 		    //PROOFS API ------------------------------------------------------------
 		        // get all proofs

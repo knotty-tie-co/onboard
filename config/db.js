@@ -1,6 +1,6 @@
 
 
 	module.exports = {
-	url : 'mongodb://localhost/proofView'
+	url : 'mongodb://localhost/design-requests'
 
 };
