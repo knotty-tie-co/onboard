@@ -11,7 +11,7 @@
 	self.descriptors = ProfileService.details.descriptors;
 	self.values = ProfileService.details.values;
 	if (ProfileService.details.customer.weddingDate) {
-	self.weddingDate = moment(ProfileService.details.customer.weddingDate).format('MMMM D, YYYY');}
+	self.weddingDate = moment.utc(ProfileService.details.customer.weddingDate).format('MMMM D, YYYY');}
 	self.email = ProfileService.details.customer.email;
 	self.patterns = PatternService.allPatterns;
 	self.customRequest = ProfileService.details.customRequest;
@@ -91,13 +91,15 @@
 
 	self.newSignUp = function (){
 			if(localStorage.profileId === ""){
-			var date = moment(self.weddingDate).format();
+			var date = moment.utc(self.weddingDate).format();
 			$http
 			    .get('/api/design-requests?customer.email='+self.email+"&customer.weddingDate="+date)
 			    .then(function(response){
 			    	console.log(response);
 			    	if (response.data === "") {
 			    		ProfileService.saveProfile();
+			    		self.lastStageCompleted = "create-profile-sign-up";
+			    		ProfileService.details.completed = "create-profile-sign-up";
 			    	} else {
 				    	ProfileService.id = response.data._id;
 				    	ProfileService.details = response.data;

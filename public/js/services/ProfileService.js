@@ -7,8 +7,6 @@ angular.module('ProfileService', [])
 
 	profile.colorCount = 0;
 
-	profile.logInEmail = "";
-	profile.logInWeddingDate = "";
 
 	profile.details = {};
 
