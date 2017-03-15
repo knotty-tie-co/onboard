@@ -15,7 +15,7 @@ angular.module('PersonalInfoCtrl', []).controller('PersonalInfoController', func
 	self.zapAndSave = ProfileService.zapAndSave;
 	self.editEmail = false;
 	self.originalEmail = ProfileService.details.customer.email;
-	self.weddingDate = moment(ProfileService.details.customer.weddingDate).format('MMMM D, YYYY');
+	self.weddingDate = moment.utc(ProfileService.details.customer.weddingDate).format('MMMM D, YYYY');
 
 	self.saveNewEmail = function(){
 			self.editEmail = false;
