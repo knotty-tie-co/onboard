@@ -40,6 +40,7 @@
 		$http
 		    .get('/api/design-requests?customer.email='+self.logInEmail+"&customer.weddingDate="+date)
 		    .then(function(response){
+		    	console.log(response);
 		    	if (response.data === "") {
 		    		self.logInFailed = true;
 		    	} else {
