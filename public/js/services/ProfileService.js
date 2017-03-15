@@ -267,7 +267,6 @@ angular.module('ProfileService', [])
 		      data    : zapPayload,
 		      headers : { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
 		                });
-	};
 
 	profile.zapUnsubscribeCrmContact = function(originalEmail){
 		var zapPayload = {
