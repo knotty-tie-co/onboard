@@ -1,5 +1,5 @@
 angular.module('ProfileService', [])
-.factory('ProfileService', function Profile($state, $http) {
+.factory('ProfileService', function Profile($state, $http, $stateParams, $location) {
 
 	var profile = this;
 
@@ -180,7 +180,9 @@ angular.module('ProfileService', [])
 	profile.details.completed = "";
 
 	profile.checkCompletion = function (){
-		console.log("check");
+		if ($stateParams.id){
+			localStorage.profileId = $routeParams.id;
+		}
 		if (profile.details.completed === "") {
 			$state.transitionTo('create-profile');
 		} else if (profile.details.completed === "create-profile-personal-info"){
@@ -189,14 +191,14 @@ angular.module('ProfileService', [])
 	};
 
 	profile.checkForAccount = function() {
+		if ($location.search().id){
+			localStorage.profileId = $location.search().id;
+		}
 		if ($state.$current.name === 'create-profile') {
 			if (localStorage.profileId) {
-			console.log("checkforacct" + localStorage.profileId);
 				$http
 				    .get('/api/design-requests/'+ localStorage.profileId)
 				    .then(function(response){
-				    	console.log(('/api/design-requests/'+ localStorage.profileId));
-				    	console.log(response);
 				    	profile.id = response.data._id;
 				    	profile.details = response.data;
 				    	$('#resume')
@@ -227,7 +229,6 @@ angular.module('ProfileService', [])
 
 	profile.zapAndSave = function(){
 		profile.markCompleted();
-		console.log("profile id: " +profile.id);
 		if (profile.id === null) {
 			$http
 			    .post('/api/design-requests', profile.details)
@@ -264,6 +265,12 @@ angular.module('ProfileService', [])
 		$http({
 		      method  : "POST",
 		      url     : 'https://hooks.zapier.com/hooks/catch/118282/mgswz6/',
+		      data    : zapPayload,
+		      headers : { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
+		                });
+		$http({
+		      method  : "POST",
+		      url     : 'https://hooks.zapier.com/hooks/catch/118282/1yz96a/',
 		      data    : zapPayload,
 		      headers : { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
 		                });

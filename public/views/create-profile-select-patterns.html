@@ -5,7 +5,8 @@
 					<center>
 						<div class="ui segment">
 							<h2 class="ui header">Select your patterns.</h2>
-							<p class="large text">Pick patterns that you want to see applied to the products you choose. Your designer will use these patterns to create a proof for you. Don't see what you're looking for? <a class="request-design" href="#">Request a custom design!</a ></p>
+							<p class="large text">Pick patterns that you want to see applied to the products you choose. Your designer will combine these patterns with your colors and products to create your proof. Don't see what you're looking for? <a class="request-design" href="#">Request a custom design!</a ></p>
+							<p>You can select up to 12 patterns for your first proof.</p>
 						</div>
 					</center>
 				</div>
@@ -17,7 +18,7 @@
 		<div class="ui five doubling cards">
 			<div class="ui link card" ng-repeat="pattern in profile.patterns | orderBy : '-relevanceScore'| limitTo: 10" ng-click="profile.togglePattern(pattern)" ng-class="{'raised yellow': pattern.selected}">
 				<div class="image">
-					<img src="http://placehold.it/600?text=traditional+600px">
+					<img ng-src="/assets/pattern-images/{{ pattern.filename }}">
 				</div>
 				<div class="content">
 					<div class="description">
@@ -34,7 +35,7 @@
 			<div class="ui five doubling cards">
 				<div class="ui link card" ng ng-repeat="pattern in value" ng-click="profile.togglePattern(pattern)" ng-class="{'yellow': pattern.selected,'empty': !pattern.selected}">
 					<div class="image">
-						<img src="http://placehold.it/600?text=traditional+600px">
+						<img ng-src="/assets/pattern-images/{{ pattern.filename }}">
 					</div>
 					<div class="content">
 						<div class="description">
@@ -61,6 +62,7 @@
 		<div style="position: fixed; z-index: 1000 ; bottom: 0; padding-top: 5px; clear: both; left: 0; width: 100%;">
 			<div class="ui  padded secondary segment fluid">
 				<center>
+					<p ng-show="profile.selectedPatternCount == 12">You've selected the maximum ammount of patterns. To select a new pattern, deselect another.</p>
 					<p>Select at least 3 patterns or <a class="request-design" href="#">request a custom design</a> to continue.<br/></p>
 					<div class="ui centered buttons">
 						<button class="ui left labeled icon button" ui-sref="create-profile-sign-up" >

@@ -5,7 +5,7 @@
 					<center>
 						<div class="ui segment">
 							<h2 class="ui header">Your submission has been recieved.</h2>
-							<p class="large text">We'll be following up by email in 1-2 business days with your proof, so keep an eye on your inbox! If you want to make any changes before you recieve your first proof, send us a message!</p>
+							<p class="large text">We'll be following up by email in 1-2 business days with your proof, so keep an eye on your inbox! If you want to make any changes before you recieve your first proof, send an email to team@knottytie.com or call us at 303-954-9470.</p>
 						</div>
 					</center>
 				</div>
@@ -51,12 +51,11 @@
 							<textarea ng-model="profile.details.customer.designNotes"></textarea>
 						</div>
 					</form>
-					<h3>Review your submission</h3>
 					<h5>Patterns</h5>
 					<div class="ui three doubling cards">
-						<div class="ui card" ng-repeat="pattern in profile.details.patterns | filter: pattern.selected == true">
+						<div class="ui card" ng-repeat="pattern in profile.details.patterns | filter: pattern.selected != false">
 							<div class="image">
-								<img src="http://placehold.it/600?text=traditional+600px">
+								<img ng-src="/assets/pattern-images/{{ pattern.filename }}">
 							</div>
 							<div class="content">
 								<div class="description">

@@ -1,10 +1,13 @@
  angular.module('ProfileCtrl', []).controller('ProfileController', function($scope, $http, $state, $window, ProfileService, PatternService, ColorService) {
 
+
+
  	if ($state.$current.name != 'create-profile') {
  		ProfileService.checkCompletion();
  	}
 
  	ProfileService.checkForAccount();
+
 
  	var self = this;
  	self.details = ProfileService.details;
@@ -73,8 +76,10 @@
 
  		self.togglePattern = function(patternObject){
  			if(patternObject.selected === false){
- 				patternObject.selected = true;
- 				self.selectedPatternCount ++;
+ 				if (self.selectedPatternCount < 12) {
+	 				patternObject.selected = true;
+	 				self.selectedPatternCount ++;
+ 				}
  			} else {
  				patternObject.selected = false;
  				self.selectedPatternCount --;
@@ -178,6 +183,7 @@
  		};
 
 
+
  		self.scorePatterns = function(selectedTag) {
  			if(selectedTag){
  			}
@@ -200,7 +206,7 @@
  				}
 
  			}
- 		};
+ 		}();
 
  		self.updateCustomRequest = function(){
  			ProfileService.details.customRequest = self.customRequest;
