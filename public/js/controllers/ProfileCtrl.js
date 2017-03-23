@@ -35,6 +35,7 @@
 
  		self.logOut = function (){
  			localStorage.profileId = "";
+ 			ProfileService.id = "";
  			$window.location.href = '/create-profile';
  		};
 

@@ -250,11 +250,26 @@ angular.module('ProfileService', [])
 	};
 
 	profile.zapToCrm = function(){
+		compilePatterns = function(){
+			var selectedPatterns = [];
+			for (var i = 0; i < profile.details.patterns.length; i++) {
+				pattern = profile.details.patterns[i];
+				if (pattern.selected === true) {
+					minPattern = {
+						"patternName" : pattern.patternName,
+						"patternId": pattern.patternID
+					};
+					selectedPatterns.push(minPattern);
+				}
+			}
+			return selectedPatterns;
+		};
+
 		var zapPayload = {
 			customer : profile.details.customer,
 			completed : profile.details.completed,
 			colors : profile.details.colors,
-			patterns : profile.details.selectedPatterns,
+			patterns : compilePatterns(),
 			products : profile.details.products,
 			databaseId : profile.id,
 			values : profile.details.values,
