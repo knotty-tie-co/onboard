@@ -251,6 +251,7 @@ angular.module('ProfileService', [])
 
 	profile.zapToCrm = function(){
 		compilePatterns = function(){
+			if (profile.details.patterns) {
 			var selectedPatterns = [];
 			for (var i = 0; i < profile.details.patterns.length; i++) {
 				pattern = profile.details.patterns[i];
@@ -263,6 +264,7 @@ angular.module('ProfileService', [])
 				}
 			}
 			return selectedPatterns;
+		}
 		};
 
 		var zapPayload = {

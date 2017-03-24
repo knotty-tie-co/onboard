@@ -98,7 +98,6 @@
  		self.newSignUp = function (){
  			if(localStorage.profileId === ""){
  				self.lastStageCompleted = "create-profile-sign-up";
- 				ProfileService.details.completed = "create-profile-sign-up";
  				var date = moment.utc(self.weddingDate).format();
  				$http
  				.get('/api/design-requests?customer.email='+self.email+"&customer.weddingDate="+date)
