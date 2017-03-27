@@ -10,6 +10,7 @@ angular.module('ColorCtrl', []).controller('ColorController', function($scope, $
 	self.lastSelectedSwatch = null ;
 	self.colorFilter = "";
 	self.colorCount = ProfileService.colorCount;
+	self.colorSet="Knotty";
 
 	self.saveProfile = function (){
 		ProfileService.saveProfile();
@@ -54,6 +55,13 @@ angular.module('ColorCtrl', []).controller('ColorController', function($scope, $
 	self.setColorFilter = function(color){
 		console.log("yo");
 		self.colorFilter = color;
+	};
+
+	self.setColorSet = function (set){
+		if (set == self.colorSet) {
+			self.colorSet = "Knotty";
+		}
+		self.colorSet = set;
 	};
 
 	$scope.test = function(){

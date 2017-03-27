@@ -141,9 +141,9 @@
  					}
  				}
  			}
- 			self.scorePatterns(id);
  			ProfileService.details.selectedDescriptors = self.selectedDescriptors;
  			ProfileService.details.selectedDescriptorsCount = self.selectedDescriptorsCount;
+ 			console.log(ProfileService.selectedDescriptorsCount);
  		};
 
  		self.descriptorIsSelected = function(id){
@@ -170,7 +170,6 @@
  		self.updateComplexity = function(selection){
  			ProfileService.details.values.complexity = parseInt(selection);
  			self.values = ProfileService.details.values;
- 			self.scorePatterns ();
  		};
 
 

@@ -54,9 +54,8 @@
 	</div>
 	<div class="content">
 		<div class="description">
-			<div class="ui header">Choose from these colors</div>
-			<p>You can pick from our colors or match to colors from dressmakers.</p>
-		</div>
+			<h5 class="header">You can pick from our colors or match to colors from popular dressmakers.</h5>
+		
 		<div class="ui labeled icon top pointing dropdown centered button">
 		  <i class="filter icon"></i>
 		  <span class="text">Filter Colors</span>
@@ -106,14 +105,36 @@
 			</div>
 			<div class="item" ng-click="profile.setColorFilter('Off White')">
 			  <div class="ui white empty circular label"></div>
-			  Off White
+			  White/Off White
 			</div>
 		  </div>
 		</div>
+		<div class="ui labeled icon top pointing dropdown centered button">
+		  <i class="female icon"></i>
+		  <span class="text">Bridesmaid's Dress Colors</span>
+		  <div class="menu">
+		    <div class="item" ng-click="profile.setColorSet('Davids Bridal')">		    	
+		     	David's Bridal
+		    </div>
+		    <div class="item" ng-click="profile.setColorSet('Azazie')">
+		      Azazie
+		    </div>
+		    <div class="item" ng-click="profile.setColorSet('Knotty')">
+		      All Colors
+		    </div>
+		  </div>
+		</div>
+
+
 		<br>
 		<br>
+		
+		<p ng-show="profile.colorSet === 'Davids Bridal'">Knotty Tie Co. is not affiliated with David's Bridal. We provide these colors as a convenience, and some colors may be slightly different from the colors provided by them. If exact color accuracy is important to you, we recommend requesting a printed color sample after you submit your design request.</p>
+
+		<p ng-show="profile.colorSet === 'Azazie'">Knotty Tie Co. is not affiliated with Azazie. We provide these colors as a convenience, and some colors may be slightly different from the colors provided by them. If exact color accuracy is important to you, we recommend requesting a printed color sample after you submit your design request.</p>
+
 		<div class="ui six doubling cards" >
-			<div class="ui link card" ng-repeat="option in profile.colorOptions | filter: {category : profile.colorFilter}" ng-click="profile.selectColor(option.hex, option.colorName)">
+			<div class="ui link card" ng-repeat="option in profile.colorOptions | filter: {category : profile.colorFilter, colorSet: profile.colorSet}" ng-click="profile.selectColor(option.hex, option.colorName)">
 				<svg class="color-chosen image">
 					<rect width="600"  height="600" ng-style="{'fill': option.hex}" />
 				</svg>
@@ -124,7 +145,7 @@
 				</div>
 			</div>
 		</div>
-
+		</div>
 	</div>
 </div>
 </div>
