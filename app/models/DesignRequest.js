@@ -49,7 +49,8 @@ var mongoose = require('mongoose');
     		pocketSquareDiscountPerUnit: Number,
     		pocketSquaresSubtotal: Number,
     		estimatedTotal: Number
-    }
+    },
+    adSource : String
 	},
 	{timestamps: true});
 // define our nerd model

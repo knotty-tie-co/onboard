@@ -10,6 +10,8 @@ angular.module('ProfileService', [])
 
 	profile.details = {};
 
+	profile.details.adSource = "";
+
 	profile.details.descriptors = {
 		"artDeco": {
 			"display": "Art Deco",
@@ -208,6 +210,8 @@ angular.module('ProfileService', [])
 		}}
 	};
 
+
+
 	profile.markCompleted = function(){
 		var current = $state.current.name;
 		var completed = profile.details.completed;
@@ -278,6 +282,7 @@ angular.module('ProfileService', [])
 			customRequest : profile.details.customRequest,
 			estimate : profile.details.estimate,
 			descriptors : profile.details.selectedDescriptors,
+			adSource : profile.details.adSource
 		};
 		$http({
 		      method  : "POST",

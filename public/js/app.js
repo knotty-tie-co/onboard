@@ -2,7 +2,7 @@ angular.module('proofViewApp', ['appRoutes', 'MainCtrl', 'DealCtrl', 'ProofCtrl'
 .config(function ($sceProvider) {
 	$sceProvider.enabled(false);
 })
-.run(function($rootScope, $state, $stateParams){
+.run(function($rootScope, $state, $stateParams, $location, ProfileService){
   $rootScope.$state = $state;
   $rootScope.$stateParams = $stateParams;
   $rootScope.$on('$stateChangeSuccess', function() {
@@ -11,6 +11,13 @@ angular.module('proofViewApp', ['appRoutes', 'MainCtrl', 'DealCtrl', 'ProofCtrl'
   $rootScope.close_modal=function(){
   	$rootScope.show_modal=false;
   };
+  if ($location.search().adSource){
+      adSource = $location.search().adSource;
+      ProfileService.details.adSource = adSource;
+      localStorage.adSource = adSource;
+    } else if (localStorage.adSource) {
+      ProfileService.details.adSource = localStorage.adSource;
+    }
   });
 });
 

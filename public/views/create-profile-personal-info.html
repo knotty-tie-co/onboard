@@ -74,6 +74,10 @@
 					</form>
 					<h3>Review your submission</h3>
 					<h5>Patterns <a href=""><i class="pencil icon" ui-sref="create-profile-select-patterns"></i></a></h5>
+					<div ng-show="profile.customRequest">
+						<h5>Your custom design ideas:</h5>
+						<p> {{profile.customRequest}} </p>
+					</div>
 					<div class="ui three doubling cards">
 						<div class="ui card" ng-repeat="pattern in profile.patterns | filter: pattern.selected != false">
 							<div class="image">
@@ -86,10 +90,7 @@
 							</div>
 						</div>
 					</div>
-					<div ng-show="profile.customRequest">
-						<h5>Your custom design ideas:</h5>
-						<p> {{profile.customRequest}} </p>
-					</div>
+					
 					<h5>Colors <a href="#"><i class="pencil icon" ui-sref="create-profile-select-colors"></i></a></h5>
 					<div class="ui three doubling cards" >
 						<div class="ui card" ng-repeat="color in profile.colors | filter: {colorName : '!Select a color'}" ng-click="profile.selectSwatch(color.colorSwatchID)">

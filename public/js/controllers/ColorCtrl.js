@@ -1,9 +1,6 @@
 angular.module('ColorCtrl', []).controller('ColorController', function($scope, $http, $compile, ProfileService, ColorService) {
 
-	ProfileService.checkCompletion();
-
-	console.log(ProfileService.details.customRequest);
-	
+	ProfileService.checkCompletion();	
 	var self = this;
 	self.colors = ProfileService.details.colors;
 	self.colorOptions = ColorService.allColors;
@@ -21,12 +18,12 @@ angular.module('ColorCtrl', []).controller('ColorController', function($scope, $
 	};
 
 	self.selectColor = function(hex, colorName){
-		console.log("yo");
-		console.log(self.selectedSwatch);
+
+
 		for (var i = 0; i < self.colors.length; i++) {
-			console.log(self.colors[i]);
+	
 			if (self.colors[i].colorSwatchID == self.lastSelectedSwatch){
-				console.log("matched");
+		
 				self.colors[i].colorName = colorName;
 				self.colors[i].hex = hex;
 				ProfileService.details.colors = self.colors;
@@ -41,7 +38,7 @@ angular.module('ColorCtrl', []).controller('ColorController', function($scope, $
 
 	self.clearColorSelection = function(swatchID){
 		for (var i = 0; i < self.colors.length; i++) {
-			console.log(self.colors[i]);
+	
 			if (self.colors[i].colorSwatchID == swatchID){
 				self.colors[i].colorName = "Select a color";
 				self.colors[i].hex = "eeeeee";
@@ -53,7 +50,7 @@ angular.module('ColorCtrl', []).controller('ColorController', function($scope, $
 	};
 
 	self.setColorFilter = function(color){
-		console.log("yo");
+
 		self.colorFilter = color;
 	};
 
@@ -65,7 +62,7 @@ angular.module('ColorCtrl', []).controller('ColorController', function($scope, $
 	};
 
 	$scope.test = function(){
-		console.log('yo');
+
 	};
 
 	$(document).ready(function(){
