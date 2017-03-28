@@ -13,13 +13,13 @@
 			<div class="ui stackable row">
 				<div class="ui eight wide centered column">
 					<form name="initialSignup" class="ui form">
-						<div class=" required field" ng-show="profile.lastStageCompleted === 'create-profile-simple-complex'">
+						<div class=" required field" ng-show="profile.lastStageCompleted === 'create-profile-descriptors'">
 							<label>
 								Email
 							</label>
 							<input type="email" ng-model="profile.email" ng-change="profile.updateEmail(profile.email)" placeholder="your email" required>
 						</div>
-						<div ng-show="(profile.lastStageCompleted != 'create-profile-simple-complex') && !profile.editEmail">
+						<div ng-show="(profile.lastStageCompleted != 'create-profile-descriptors') && !profile.editEmail">
 							<div class=" disabled field" >
 								<label>
 									Email
@@ -63,7 +63,7 @@
 					<center>
 						<p>Enter your email and wedding date to continue<br/></p>
 						<div class="ui centered buttons">
-							<button class="ui left labeled icon button" ui-sref="create-profile-simple-complex" ng-class="{'disabled': profile.editEmail}" ng-click="profile.saveProfile()" >
+							<button class="ui left labeled icon button" ui-sref="create-profile-descriptors" ng-class="{'disabled': profile.editEmail}" ng-click="profile.saveProfile()" >
 								<i class="left arrow icon"></i>
 								Back
 							</button>
@@ -78,7 +78,7 @@
 		</div>
 		<div class="ui modal" id="profileExists">
 			<div class="header">
-				You already have a design request
+				Wait a minute...
 			</div>
 			<div class="content">
 				You've already started a design request with this email and wedding date. We saved it where you left off.

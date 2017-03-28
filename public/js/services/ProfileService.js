@@ -221,7 +221,7 @@ angular.module('ProfileService', [])
 			((current === "create-profile-descriptors")&&(completed ==="create-profile")) ||
 			((current === "create-profile-playful-traditional")&&(completed ==="create-profile-descriptors")) ||
 			((current === "create-profile-simple-complex")&&(completed ==="create-profile-playful-traditional")) ||
-			((current === "create-profile-sign-up")&&(completed ==="create-profile-simple-complex")) ||
+			((current === "create-profile-sign-up")&&(completed ==="create-profile-descriptors")) ||
 			((current === "create-profile-select-patterns")&&(completed ==="create-profile-sign-up")) ||
 			((current === "create-profile-select-colors")&&(completed ==="create-profile-select-patterns")) ||
 			((current === "create-profile-select-products")&&(completed ==="create-profile-select-colors")) ||

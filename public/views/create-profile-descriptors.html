@@ -28,37 +28,63 @@
 				<center>
 
 					<div class="ui segment">
-						<h2 class="ui header">Pick the styles that describe your wedding.</h2>
-						<p class="large text">Select as many styles that match your wedding as you would like.
+						<h2 class="ui header">Tell us about your style.</h2>
+						<p class="large text">
 							We'll use these descriptions to help find patterns that are a good fit for you.</p>
-					</div>
-				</center>
-			</div>
+						</div>
+					</center>
+				</div>
 			</div>
 			<div class="ui stackable row">
-			<center>
-				<button ng-click="profile.toggleDescriptor(id)" ng-repeat="(id, descriptor) in profile.descriptors" ng-class="{'light primary': profile.descriptorIsSelected(id)}" class="ui small toggle button" style="margin: 10px;">{{descriptor.display}}</button>
-			</center>
+				<center>
+					<br>
+					<p class="large text">Pick at least three styles that describe your wedding.</p>
+					<button ng-click="profile.toggleDescriptor(id)" ng-repeat="(id, descriptor) in profile.descriptors" ng-class="{'light primary': profile.descriptorIsSelected(id)}" class="ui small toggle button" style="margin: 10px;">{{descriptor.display}}</button>
+				</center>
 			</div>
 		</div>
-		<!-- <div class="clearer"></div> -->
+		<div class="ui center aligned row">
+		<br>
+		<br>
+			<center>
+				<p class="large text">Do you prefer patterns that are more simple or more complex?</p>
+				<div class="ui buttons">
+					<button class="ui button" ng-class="{'light primary': profile.details.values.complexity == 0}" ng-click="profile.updateComplexity(0)">Simple</button>
+					<button class="ui button" ng-class="{'light primary': profile.details.values.complexity == 1}" ng-click="profile.updateComplexity(1)">In Between</button>
+					<button class="ui button" ng-class="{'light primary': profile.details.values.complexity == 2}" ng-click="profile.updateComplexity(2)">Complex</button>
+				</div>
+			</center>
+		</div>
+		<div class="ui center aligned row">
+			<center>
+				<br/>
+				<br>
+				<p class="large text">Is your style more traditional or more playful?</p>
+				<div class="ui buttons">
+					<button class="ui small button" ng-class="{'light primary': profile.details.values.playfulness == 0}" ng-click="profile.updatePlayfulness(0)">Playful</button>
+					<button class="ui small button" ng-class="{'light primary': profile.details.values.playfulness == 1}" ng-click="profile.updatePlayfulness(1)">In Between</button>
+					<button class="ui small button" ng-class="{'light primary': profile.details.values.playfulness == 2}" ng-click="profile.updatePlayfulness(2)">Traditional</button>
+				</div>
+			</center>
+		</div>
+		<div class="clearer"></div>
 		<div style="position: fixed; bottom: 0; padding-top: 5px; clear: both; left: 0; width: 100%;">
 			<div class="ui  padded secondary segment fluid">
 				<div class="ui container">
 					<center>
-						<p>Select at least three styles to continue</p>
-					<div class="ui centered buttons">
-						<button class="ui left labeled icon button" ui-sref="create-profile" >
-							<i class="left arrow icon"></i>
-							Back
-						</button>
-						<button class="ui right labeled icon button" ui-sref="create-profile-playful-traditional" ng-click="profile.markStageCompleted()" ng-class="{'primary': profile.selectedDescriptorsCount > 2, 'disabled': profile.selectedDescriptorsCount < 3}">
-							<i class="right arrow icon"></i>
-							Next
-						</button>
-					</div>
+						<p>Answer all three questions to continue</p>
+						<div class="ui centered buttons">
+							<button class="ui left labeled icon button" ui-sref="create-profile" >
+								<i class="left arrow icon"></i>
+								Back
+							</button>
+							<button class="ui right labeled icon button" ui-sref="create-profile-sign-up" ng-click="profile.markStageCompleted()" ng-class="{'primary': profile.selectedDescriptorsCount > 2  && (profile.values.playfulness || profile.values.playfulness === 0) && (profile.values.complexity || profile.values.complexity === 0), 'disabled': profile.selectedDescriptorsCount < 3 || profile.values.playfulness === null || profile.values.complexity === null}">
+								<i class="right arrow icon"></i>
+								Next
+							</button>
+						</div>
 					</center>	
 				</div>
+			</div>
 		</div>
 	</div>
-</div>

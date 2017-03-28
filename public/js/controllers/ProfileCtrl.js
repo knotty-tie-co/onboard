@@ -161,14 +161,25 @@
 
  		};
 
+ 		// self.updatePlayfulness = function(selection){
+ 		// 	ProfileService.details.values.playfulness = parseInt(selection);
+ 		// 	self.values = ProfileService.details.values;
+ 		// 	self.scorePatterns ();
+ 		// };
+
+ 		// self.updateComplexity = function(selection){
+ 		// 	ProfileService.details.values.complexity = parseInt(selection);
+ 		// 	self.values = ProfileService.details.values;
+ 		// };
+
+
  		self.updatePlayfulness = function(selection){
- 			ProfileService.details.values.playfulness = parseInt(selection);
+ 			ProfileService.details.values.playfulness = selection;
  			self.values = ProfileService.details.values;
- 			self.scorePatterns ();
  		};
 
  		self.updateComplexity = function(selection){
- 			ProfileService.details.values.complexity = parseInt(selection);
+ 			ProfileService.details.values.complexity = selection;
  			self.values = ProfileService.details.values;
  		};
 
