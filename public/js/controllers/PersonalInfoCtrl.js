@@ -1,7 +1,6 @@
 angular.module('PersonalInfoCtrl', []).controller('PersonalInfoController', function($scope, $http, ProfileService) {
 
 	ProfileService.checkCompletion();
-	console.log(ProfileService.details.customRequest);
 
 	var self = this;
 
@@ -21,7 +20,6 @@ angular.module('PersonalInfoCtrl', []).controller('PersonalInfoController', func
 			self.editEmail = false;
 			var newEmail = self.email;
 				ProfileService.details.customer.email = self.customer.email;
-				console.log(ProfileService.details.customer.email );
 				ProfileService.zapUnsubscribeCrmContact(self.originalEmail);
 				ProfileService.zapAndSave();
 				self.originalEmail = self.customer.email;

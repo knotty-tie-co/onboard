@@ -1,5 +1,5 @@
 	<div ng-controller="ProfileController as profile">
-		<div class="ui container grid">
+		<div class="ui grid">
 			<div class="ui stackable row">
 				<div class="ui sixteen wide centered column">
 					<center>
@@ -13,7 +13,7 @@
 			</div>
 		</div>
 		<div class="ui header">
-			<h3>Our top picks for you:</h3>
+			<h2>Our top picks for you:</h2>
 		</div>
 		<div class="ui five doubling cards">
 			<div class="ui link card" ng-repeat="pattern in profile.patterns | orderBy : '-relevanceScore'| limitTo: 10" ng-click="profile.togglePattern(pattern)" ng-class="{'raised yellow': pattern.selected}">
@@ -27,11 +27,14 @@
 				</div>
 			</div>
 		</div>
+		<br>
+		<br>
 		<div class="ui header">
-			<h3>All patterns:</h3>
+			<h2>All patterns:</h2>
 		</div>
 		<div ng-repeat="(key, value) in profile.patterns | groupBy: 'category'"> 
-			<h4>{{key}}</h4>
+			<h3>{{key | capitalize}}</h3>
+			<div class="ui divider"></div>
 			<div class="ui five doubling cards">
 				<div class="ui link card" ng ng-repeat="pattern in value" ng-click="profile.togglePattern(pattern)" ng-class="{'yellow': pattern.selected,'empty': !pattern.selected}">
 					<div class="image">
@@ -46,16 +49,19 @@
 				
 				<div class="ui request-design link card">
 					<div class="image">
-						<img src="http://placehold.it/600x500?text=traditional+600px">
+						<img src="/assets/questionmark.png">
 					</div>
 					<div class="content">
 						<div class="description">
 							<p>Want something else?</p>	 <a class="request-design" href="#">Request a custom design!</a>
 						</div>
 					</div>
-
 				</div>
 			</div>
+			<br>
+			<br>
+			<br>
+			
 		</div>
 
 		<div class="clearer"></div>

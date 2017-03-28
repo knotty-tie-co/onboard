@@ -59,11 +59,11 @@
 								weddingDate" ng-change="profile.updateWeddingDate(profile.weddingDate)" placeholder="Date" required  style="margin-bottom: 15px">
 							</datepicker>
 						</div>
-						<div class="required field" ng-class="{'disabled': profile.editEmail}">
+						<div class="field" ng-class="{'disabled': profile.editEmail}">
 							<label>
 								Phone number
 							</label>
-							<input type="text" ng-model="profile.customer.phoneNumber" placeholder="303-123-4567" required>
+							<input type="text" ng-model="profile.customer.phoneNumber" placeholder="303-123-4567">
 						</div>
 						<div class="field" ng-class="{'disabled': profile.editEmail}">
 							<label>
@@ -73,10 +73,11 @@
 						</div>
 					</form>
 					<h3>Review your submission</h3>
-					<h5>Patterns <a href=""><i class="pencil icon" ui-sref="create-profile-select-patterns"></i></a></h5>
+					<h5>Patterns <a href="#"><i class="pencil icon" ui-sref="create-profile-select-patterns"></i></a></h5>
 					<div ng-show="profile.customRequest">
 						<h5>Your custom design ideas:</h5>
 						<p> {{profile.customRequest}} </p>
+						<br>
 					</div>
 					<div class="ui three doubling cards">
 						<div class="ui card" ng-repeat="pattern in profile.patterns | filter: pattern.selected != false">
@@ -133,7 +134,7 @@
 								<i class="left arrow icon"></i>
 								Back
 							</button>
-							<button class="ui right labeled icon button" ui-sref="create-profile-confirmation" ng-click="profile.saveCustomerInfo()" ng-class="{'positive': profile.customer.firstName && profile.customer.lastName && profile.customer.phoneNumber, 'disabled': !(profile.customer.firstName && profile.customer.lastName && profile.customer.phoneNumber  && !profile.editEmail)}">
+							<button class="ui right labeled icon button" ui-sref="create-profile-confirmation" ng-click="profile.saveCustomerInfo()" ng-class="{'positive': profile.customer.firstName && profile.customer.lastName && profile.customer.phoneNumber, 'disabled': !(profile.customer.firstName && profile.customer.lastName && !profile.editEmail)}">
 								<i class="right arrow icon"></i>
 								Submit
 							</button>

@@ -52,6 +52,11 @@
 						</div>
 					</form>
 					<h5>Patterns</h5>
+					<div ng-show="profile.customRequest">
+						<h5>Your custom design ideas:</h5>
+						<p> {{profile.customRequest}} </p>
+						<br>
+					</div>
 					<div class="ui three doubling cards">
 						<div class="ui card" ng-repeat="pattern in profile.details.patterns | filter: pattern.selected != false">
 							<div class="image">
@@ -63,10 +68,6 @@
 								</div>
 							</div>
 						</div>
-					</div>
-					<div ng-show="profile.customRequest">
-						<h5>Your custom design ideas:</h5>
-						<p> {{profile.customRequest}} </p>
 					</div>
 					<h5>Colors</h5>
 					<div class="ui three doubling cards" >

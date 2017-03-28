@@ -203,6 +203,16 @@ angular.module('ProfileService', [])
 				    .then(function(response){
 				    	profile.id = response.data._id;
 				    	profile.details = response.data;
+				    	countColors = function(){
+				    		colorCount = 6;
+				    		for (var i = 0; i < response.data.colors.length; i++) {
+				    			if (response.data.colors[i].colorName == "Select a color"){
+				    				colorCount --;
+				    			}
+				    		}
+				    		return colorCount;
+				    	};
+				    	profile.colorCount = countColors();
 				    	$('#resume')
 				    	  .modal('show')
 				    	;

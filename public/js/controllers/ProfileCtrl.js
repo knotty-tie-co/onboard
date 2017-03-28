@@ -16,7 +16,7 @@
  	if (ProfileService.details.customer.weddingDate) {
  		self.weddingDate = moment.utc(ProfileService.details.customer.weddingDate).format('MMMM D, YYYY');}
  		self.email = ProfileService.details.customer.email;
- 		self.patterns = PatternService.allPatterns;
+ 		self.patterns = ProfileService.details.patterns || PatternService.allPatterns;
  		self.customRequest = ProfileService.details.customRequest;
  		self.colors = ProfileService.details.colors;
  		self.colorOptions = ColorService.allColors;
@@ -44,8 +44,6 @@
  			$http
  			.get('/api/design-requests?customer.email='+self.logInEmail+"&customer.weddingDate="+date)
  			.then(function(response){
- 				console.log('/api/design-requests?customer.email='+self.logInEmail+"&customer.weddingDate="+date);
- 				console.log(response);
  				if (response.data === "") {
  					self.logInFailed = true;
  				} else {
@@ -54,7 +52,6 @@
  					ProfileService.details = response.data;
  					localStorage.profileId = response.data._id;
  					self.localId = response.data._id;
- 					console.log(response);
  					if (response.data.completed == "create-profile-personal-info") {
  						$state.transitionTo('create-profile-confirmation');
  					} else {
@@ -69,7 +66,6 @@
  			self.editEmail = false;
  			var newEmail = self.email;
  			ProfileService.details.customer.email = self.email;
- 			console.log(ProfileService.details.customer.email );
  			ProfileService.zapUnsubscribeCrmContact(self.originalEmail);
  			ProfileService.zapAndSave();
  			self.originalEmail = self.email;
@@ -86,7 +82,6 @@
  				self.selectedPatternCount --;
  			}
  			ProfileService.details.selectedPatterns = self.selectedPatterns;
- 			console.log(self.selectedPatterns);
  			ProfileService.details.patterns = self.patterns;
  			ProfileService.details.selectedPatternCount = self.selectedPatternCount;
  		};
@@ -102,7 +97,6 @@
  				$http
  				.get('/api/design-requests?customer.email='+self.email+"&customer.weddingDate="+date)
  				.then(function(response){
- 					console.log(response);
  					if (response.data === "") {
  						ProfileService.saveProfile();
  						self.lastStageCompleted = "create-profile-sign-up";
@@ -112,7 +106,6 @@
  						ProfileService.details = response.data;
  						localStorage.profileId = response.data._id;
  						self.localId = response.data._id;
- 						console.log(response);
  						$('#profileExists')
  						.modal('show');
  					}
@@ -143,7 +136,6 @@
  			}
  			ProfileService.details.selectedDescriptors = self.selectedDescriptors;
  			ProfileService.details.selectedDescriptorsCount = self.selectedDescriptorsCount;
- 			console.log(ProfileService.selectedDescriptorsCount);
  		};
 
  		self.descriptorIsSelected = function(id){
@@ -220,8 +212,6 @@
 
  		self.updateCustomRequest = function(){
  			ProfileService.details.customRequest = self.customRequest;
- 			console.log(self.customRequest);
- 			console.log(ProfileService.details.customRequest);
  		};
 
  		self.selectSwatch = function(swatchID){
@@ -251,7 +241,6 @@
 
  		self.markStageCompleted = function(){
  			ProfileService.markCompleted();
- 			console.log(ProfileService.details);
  		};
 
  		$(document).ready(function(){
