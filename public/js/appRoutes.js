@@ -70,7 +70,7 @@ angular.module('appRoutes', ['ui.router']).config(
         })
 
         .state('create-profile-confirmation', {
-          url: '/create-profile/confirmation',
+          url: '/create-profile/submission-confirmation',
           templateUrl: './views/create-profile-confirmation.html',
           controller: 'ProfileController'
         })

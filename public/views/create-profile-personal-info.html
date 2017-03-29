@@ -4,8 +4,8 @@
 				<div class="ui sixteen wide centered column">
 					<center>
 						<div class="ui segment">
-							<h2 class="ui header">One last thing...</h2>
-							<p class="large text">We'll keep it simple. Add your name, phone number, and any additional information about your design ideas.</p>
+							<h2 class="ui header">Submit your request.</h2>
+							<p class="large text">Add your name, phone number, and any additional information about your design ideas.</p>
 						</div>
 					</center>
 				</div>
@@ -52,7 +52,7 @@
 						
 						<div class="required field" ng-class="{'disabled': profile.editEmail}" ng-click="profile.saveProfile()">
 							<label>
-								Wedding Date
+								Wedding date
 							</label>
 							<datepicker date-format="MMMM d, y">
 								<input type="text" ng-readonly="true" ng-model="profile.
@@ -72,7 +72,7 @@
 							<textarea ng-model="profile.customer.designNotes" placeholder="If you have more information about your design ideas, you can add it here. If you have a question, we'll take care of that as well!"></textarea>
 						</div>
 					</form>
-					<h3>Review your submission</h3>
+					<h3>Review or edit your submission</h3>
 					<h5>Patterns <a href="#"><i class="pencil icon" ui-sref="create-profile-select-patterns"></i></a></h5>
 					<div ng-show="profile.customRequest">
 						<h5>Your custom design ideas:</h5>

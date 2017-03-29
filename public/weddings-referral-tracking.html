@@ -1,0 +1,32 @@
+<script type="text/javascript">
+	function GetURLParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam)
+        {
+            return sParameterName[1];
+        }
+    }
+}
+
+adSource = GetURLParameter("adSource");
+
+if(adSource){
+	localStorage.adSource = adSource;
+}
+
+
+
+$( document ).ready(function(){
+	if(localStorage.adSource){
+		$('.onboarding-link').attr("href", "http://weddings.knottytie.com/create-profile?adSource=" + localStorage.adSource);
+	}
+});
+
+</script>
+
+<a class="onboarding-link" href="http://weddings.knottytie.com/create-profile" target="_blank">this is the link</a>
