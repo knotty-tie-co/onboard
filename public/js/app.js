@@ -2,11 +2,15 @@ angular.module('proofViewApp', ['appRoutes', 'MainCtrl', 'DealCtrl', 'ProofCtrl'
 .config(function ($sceProvider) {
 	$sceProvider.enabled(false);
 })
-.run(function($rootScope, $state, $stateParams, $location, ProfileService){
+.run(function($rootScope, $state, $stateParams, $location, $window, ProfileService){
   $rootScope.$state = $state;
   $rootScope.$stateParams = $stateParams;
   $rootScope.$on('$stateChangeSuccess', function() {
     document.body.scrollTop = document.documentElement.scrollTop = 0;
+  $window.ga('create', 'UA-XXXXXXXX-X', 'auto');
+  $rootScope.$on('$stateChangeSuccess', function (event) {
+      $window.ga('send', 'pageview', $location.path());
+  });
   $rootScope.show_modal = true;
   $rootScope.close_modal=function(){
   	$rootScope.show_modal=false;
