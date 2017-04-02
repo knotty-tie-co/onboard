@@ -10,6 +10,7 @@ angular.module('proofViewApp', ['appRoutes', 'MainCtrl', 'DealCtrl', 'ProofCtrl'
   $window.ga('create', 'UA-XXXXXXXX-X', 'auto');
   $rootScope.$on('$stateChangeSuccess', function (event) {
       $window.ga('send', 'pageview', $location.path());
+      ProfileService.executeTrackingCode('body');
   });
   $rootScope.show_modal = true;
   $rootScope.close_modal=function(){
