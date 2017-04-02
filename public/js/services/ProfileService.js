@@ -132,32 +132,38 @@ angular.module('ProfileService', [])
 	{
 		"colorSwatchID": 1,
 		"hex" :  "eeeeee",
-		"colorName" : "Select a color"
+		"colorName" : "Select a color",
+		"colorSet": ""
 	},
 	{
 		"colorSwatchID": 2,
 		"hex" :  "eeeeee",
-		"colorName" : "Select a color"
+		"colorName" : "Select a color",
+		"colorSet": ""
 	},
 	{
 		"colorSwatchID": 3,
 		"hex" :  "eeeeee",
-		"colorName" : "Select a color"
+		"colorName" : "Select a color",
+		"colorSet": ""
 	},
 	{
 		"colorSwatchID": 4,
 		"hex" :  "eeeeee",
-		"colorName" : "Select a color"
+		"colorName" : "Select a color",
+		"colorSet": ""
 	},
 	{
 		"colorSwatchID": 5,
 		"hex" :  "eeeeee",
-		"colorName" : "Select a color"
+		"colorName" : "Select a color",
+		"colorSet": ""
 	},
 	{
 		"colorSwatchID": 6,
 		"hex" :  "eeeeee",
-		"colorName" : "Select a color"
+		"colorName" : "Select a color",
+		"colorSet": ""
 	}
 
 	];

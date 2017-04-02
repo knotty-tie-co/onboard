@@ -17,7 +17,7 @@ angular.module('ColorCtrl', []).controller('ColorController', function($scope, $
 		self.lastSelectedSwatch = swatchID;
 	};
 
-	self.selectColor = function(hex, colorName){
+	self.selectColor = function(hex, colorName, colorSet){
 
 
 		for (var i = 0; i < self.colors.length; i++) {
@@ -26,7 +26,9 @@ angular.module('ColorCtrl', []).controller('ColorController', function($scope, $
 		
 				self.colors[i].colorName = colorName;
 				self.colors[i].hex = hex;
+				self.colors[i].colorSet = colorSet;
 				ProfileService.details.colors = self.colors;
+				console.log(ProfileService.details.colors);
 				break;
 			}
 		}

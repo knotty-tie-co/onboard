@@ -23,6 +23,7 @@
 			<div class="content">
 				<div class="description">
 					<a class="choose-swatch" ng-show="color.colorName == 'Select a color'">{{ color.colorName }}</a> <span ng-hide="color.colorName == 'Select a color'">{{color.colorName}}</span><i class="right floated remove icon" ng-hide="color.colorName == 'Select a color'" ng-click="profile.clearColorSelection(color.colorSwatchID)"></i>
+					<i class="ui right floated  plus icon" ></i>
 				</div>
 			</div>
 		</div>
@@ -134,7 +135,7 @@
 		<p ng-show="profile.colorSet === 'Azazie'">Knotty Tie Co. is not affiliated with Azazie. We provide these colors as a convenience, and some colors may be slightly different from the colors provided by them. If exact color accuracy is important to you, we recommend requesting a printed color sample after you submit your design request.</p>
 
 		<div class="ui six doubling cards" >
-			<div class="ui link card" ng-repeat="option in profile.colorOptions | filter: {category : profile.colorFilter, colorSet: profile.colorSet}" ng-click="profile.selectColor(option.hex, option.colorName)">
+			<div class="ui link card" ng-repeat="option in profile.colorOptions | filter: {category : profile.colorFilter, colorSet: profile.colorSet}" ng-click="profile.selectColor(option.hex, option.colorName, option.colorSet)">
 				<svg class="color-chosen image">
 					<rect width="600"  height="600" ng-style="{'fill': option.hex}" />
 				</svg>

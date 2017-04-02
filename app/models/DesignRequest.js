@@ -33,7 +33,8 @@ var mongoose = require('mongoose');
     colors: [{
     	colorSwatchID: Number,
     	hex: String,
-    	colorName: String
+    	colorName: String,
+        colorSet: String
     }],
     products : {
     		neckties : Number,
