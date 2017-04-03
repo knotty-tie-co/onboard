@@ -23,7 +23,7 @@
 			<div class="content">
 				<div class="description">
 					<a class="choose-swatch" ng-show="color.colorName == 'Select a color'">{{ color.colorName }}</a> <span ng-hide="color.colorName == 'Select a color'">{{color.colorName}}</span><i class="right floated remove icon" ng-hide="color.colorName == 'Select a color'" ng-click="profile.clearColorSelection(color.colorSwatchID)"></i>
-					<i class="ui right floated  plus icon" ></i>
+					<i class="ui right floated  plus icon" ng-show="color.colorName == 'Select a color'"></i>
 				</div>
 			</div>
 		</div>
