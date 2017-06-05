@@ -294,7 +294,7 @@ angular.module('ColorService', [])
 	   "colorSet" : "Knotty"
 	 },
 	 {
-	   "colorName": "Kimato",
+	   "colorName": "Kumato",
 	   "hex": "#541417",
 	   "category": "Red",
 	   "colorSet" : "Knotty"
@@ -4089,12 +4089,6 @@ angular.module('ColorService', [])
    "colorName": "Sangria",
    "hex": "#710b4c",
    "category": "Red",
-   "colorSet": "Davids Bridal"
- },
- {
-   "colorName": "Silver",
-   "hex": "#cbcfda",
-   "category": "Gray",
    "colorSet": "Davids Bridal"
  },
  {
