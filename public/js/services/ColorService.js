@@ -198,7 +198,7 @@ angular.module('ColorService', [])
 	   "colorSet" : "Knotty"
 	 },
 	 {
-	   "colorName": "Tuplip",
+	   "colorName": "Tulip",
 	   "hex": "#d82e57",
 	   "category": "Pink",
 	   "colorSet" : "Knotty"
@@ -3906,6 +3906,12 @@ angular.module('ColorService', [])
    "colorSet": "Davids Bridal"
  },
  {
+   "colorName": "Graphite",
+   "hex": "#373a3e",
+   "category": "Gray",
+   "colorSet": "Davids Bridal"
+ },
+ {
    "colorName": "Guava",
    "hex": "#fa5769",
    "category": "Red",
@@ -3939,6 +3945,12 @@ angular.module('ColorService', [])
    "colorName": "Ivory",
    "hex": "#eae7df",
    "category": "Off White",
+   "colorSet": "Davids Bridal"
+ },
+ {
+   "colorName": "Juniper",
+   "hex": "#003026",
+   "category": "Green",
    "colorSet": "Davids Bridal"
  },
  {
@@ -4170,6 +4182,12 @@ angular.module('ColorService', [])
    "colorSet": "Azazie"
  },
  {
+   "colorName": "Blue Jay",
+   "hex": "#396ca1",
+   "category": "Blue",
+   "colorSet": "Azazie"
+ },
+ {
    "colorName": "Blushing Pink",
    "hex": "#decbcc",
    "category": "Pink",
@@ -4184,6 +4202,12 @@ angular.module('ColorService', [])
  {
    "colorName": "Burgundy",
    "hex": "#822c3b",
+   "category": "Red",
+   "colorSet": "Azazie"
+ },
+ {
+   "colorName": "Cabernet",
+   "hex": "#4b1623",
    "category": "Red",
    "colorSet": "Azazie"
  },
@@ -4248,9 +4272,21 @@ angular.module('ColorService', [])
    "colorSet": "Azazie"
  },
  {
+   "colorName": "Dusty Blue",
+   "hex": "#808c9d",
+   "category": "Blue",
+   "colorSet": "Azazie"
+ },
+ {
    "colorName": "Dusty Rose",
    "hex": "#bd9999",
    "category": "Pink",
+   "colorSet": "Azazie"
+ },
+ {
+   "colorName": "Dusty Sage",
+   "hex": "#a6b8a3",
+   "category": "Green",
    "colorSet": "Azazie"
  },
  {
@@ -4275,6 +4311,12 @@ angular.module('ColorService', [])
    "colorName": "Fuchsia",
    "hex": "#b64174",
    "category": "Pink",
+   "colorSet": "Azazie"
+ },
+ {
+   "colorName": "Garden Green",
+   "hex": "#53844a",
+   "category": "Green",
    "colorSet": "Azazie"
  },
  {
@@ -4304,6 +4346,12 @@ angular.module('ColorService', [])
  {
    "colorName": "Jade",
    "hex": "#007d86",
+   "category": "Green",
+   "colorSet": "Azazie"
+ },
+ {
+   "colorName": "Jungle Green",
+   "hex": "#005d64",
    "category": "Green",
    "colorSet": "Azazie"
  },
@@ -4461,6 +4509,12 @@ angular.module('ColorService', [])
    "colorName": "Stormy",
    "hex": "#585669",
    "category": "Blue",
+   "colorSet": "Azazie"
+ },
+ {
+   "colorName": "Sunset",
+   "hex": "#f98974",
+   "category": "Orange",
    "colorSet": "Azazie"
  },
  {

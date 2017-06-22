@@ -2577,7 +2577,7 @@ angular.module('PatternService', [])
 		   "category": "animals"
 		 },
 		 {
-		   "patternName": "Sarafi",
+		   "patternName": "Safari",
 		   "patternID": 10014,
 		   "filename": "10014-sarafi.jpg",
 		   "playfulness": 1,
