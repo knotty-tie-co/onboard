@@ -79,6 +79,12 @@ angular.module('appRoutes', ['ui.router']).config(
           url: '/create-profile/resume',
           templateUrl: './views/create-profile-resume.html',
           controller: 'ResumeController'
+        })
+
+        .state('pattern-guide', {
+          url: '/pattern-guide',
+          templateUrl: './views/pattern-guide.html',
+          controller: 'PatternGuideController'
         });
 
         $locationProvider.html5Mode(true);

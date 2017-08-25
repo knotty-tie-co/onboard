@@ -1,0 +1,47 @@
+	<div ng-controller="PatternGuideController as ctrl">
+		<div class="ui grid">
+			<div class="ui stackable row">
+				<div class="ui sixteen wide centered column">
+					<center>
+						<div class="ui segment" id="top">
+							<h2 class="ui header">Browse Our Patterns</h2>
+							<p class="large text">Your designer will combine the patterns, colors, and products you select to create your proof.</p>
+							<p>If you're already working with one of our designers, just let them know the patterns you would like to see. If you haven't started a design yet, click the button below to get started!</p>
+							<button ui-sref="create-profile" class="ui primary button">Start a Design</button>
+						</div>
+					</center>
+				</div>
+			</div>
+		</div>
+		<center>
+		<br>
+		<h3>Jump To:</h3>
+			<p>
+			<span ng-repeat="pattern in ctrl.patterns | unique: 'category'">
+				<a  href="#{{pattern.category}}">{{pattern.category | capitalize}}</a><span ng-if="!$last">  |  </span>
+			</span>
+			</p>
+		</center>
+		<div ng-repeat="(key, value) in ctrl.patterns | groupBy: 'category'"> 
+			<h3 id="{{key}}">{{key | capitalize}}</h3>
+			<div class="ui divider"></div>
+			<div class="ui five doubling cards">
+				<div class="ui card" ng ng-repeat="pattern in value">
+					<div class="image">
+						<img ng-src="/assets/pattern-images/{{ pattern.filename }}">
+					</div>
+					<div class="content">
+						<div class="description">
+							{{pattern.patternName}}
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<center><p><a href="#top">Back to top</a></p></center>
+			<br>
+			<br>
+			
+		</div>
+	</div>
+

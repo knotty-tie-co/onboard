@@ -1,4 +1,4 @@
-angular.module('proofViewApp', ['appRoutes', 'MainCtrl', 'DealCtrl', 'ProofCtrl', 'ProfileCtrl', 'ColorCtrl', 'ProductCtrl', 'PersonalInfoCtrl', 'ResumeCtrl', 'ProfileService', 'PatternService', 'ColorService', '720kb.datepicker', 'angular.filter'])
+angular.module('proofViewApp', ['appRoutes', 'MainCtrl', 'DealCtrl', 'ProofCtrl', 'ProfileCtrl', 'ColorCtrl', 'ProductCtrl', 'PersonalInfoCtrl', 'ResumeCtrl', 'PatternGuideCtrl', 'ProfileService', 'PatternService', 'ColorService', '720kb.datepicker', 'angular.filter'])
 .config(function ($sceProvider) {
 	$sceProvider.enabled(false);
 })

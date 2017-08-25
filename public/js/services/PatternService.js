@@ -883,17 +883,6 @@ angular.module('PatternService', [])
 		   "category" : "paisley"
 		 },
 		 {
-		   "patternName": "Murphy",
-		   "patternID": 4604,
-		   "filename": "04604-murphy.jpg",
-		   "playfulness": 0,
-		   "complexity": 2,
-		   "tags": ["classic", "elegant", "formal", "glamorous"],
-		   "selected": false,
-		   "relevanceScore": 0,
-		   "category" : "paisley"
-		 },
-		 {
 		   "patternName": "Carleton",
 		   "patternID": 4605,
 		   "filename": "04605-carleton.jpg",
@@ -999,17 +988,6 @@ angular.module('PatternService', [])
 		   "playfulness": 1,
 		   "complexity": 2,
 		   "tags": ["backyard", "boho", "country", "elegant", "rustic", "vintage"],
-		   "selected": false,
-		   "relevanceScore": 0,
-		   "category" : "paisley"
-		 },
-		 {
-		   "patternName": "Alameda",
-		   "patternID": 4615,
-		   "filename": "04615-alameda.jpg",
-		   "playfulness": 0,
-		   "complexity": 2,
-		   "tags": ["classic", "elegant", "formal", "glamorous"],
 		   "selected": false,
 		   "relevanceScore": 0,
 		   "category" : "paisley"
@@ -1406,17 +1384,6 @@ angular.module('PatternService', [])
 		   "playfulness": 2,
 		   "complexity": 1,
 		   "tags": ["vintage", "boho", "diyHandmade", ],
-		   "selected": false,
-		   "relevanceScore": 0,
-		   "category": "plaid"
-		 },
-		 {
-		   "patternName": "Chainlink",
-		   "patternID": 5835,
-		   "filename": "05835-chainlink.jpg",
-		   "playfulness": 0,
-		   "complexity": 1,
-		   "tags": ["modern", "urbanIndustrial", "simple", "glamorous"],
 		   "selected": false,
 		   "relevanceScore": 0,
 		   "category": "plaid"
